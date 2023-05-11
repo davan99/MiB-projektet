@@ -30,7 +30,7 @@ public class MiBProjektet {
             
         }
         
-        System.out.println("Kul grej!");
+        new Inloggning(idb).setVisible(true);
     }
     
 }
