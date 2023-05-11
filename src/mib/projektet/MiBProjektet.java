@@ -21,7 +21,7 @@ public class MiBProjektet {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InfException {
+    public static void main(String[] args) {
         
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
@@ -29,6 +29,8 @@ public class MiBProjektet {
             Logger.getLogger(MiBProjektet.class.getName()).log(Level.SEVERE, null, ex);
             
         }
+        
+        System.out.println("Kul grej!");
     }
     
 }
