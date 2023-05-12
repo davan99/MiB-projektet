@@ -4,6 +4,7 @@
  */
 package mib.projektet;
 
+import java.util.HashMap;
 import oru.inf.InfDB;
 
 /**
@@ -13,15 +14,16 @@ import oru.inf.InfDB;
 public class Inloggning extends javax.swing.JFrame {
     
     private InfDB idb;
-
+    private HashMap<String, String> anvandare;
     /**
      * Creates new form Inloggning
      */
     public Inloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
+        this.anvandare = new HashMap<String, String>();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,17 +33,44 @@ public class Inloggning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAlien = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btnLoggaIn = new javax.swing.JButton();
+        txtValkommen = new javax.swing.JTextField();
+        txtAngeLosenord = new javax.swing.JPasswordField();
+        lblLosenord = new javax.swing.JLabel();
+        lblEpost = new javax.swing.JLabel();
+        txtAngeEpost = new javax.swing.JTextField();
+        lblFelmeddelande = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnAlien.setText("jButton1");
-
-        jTextField1.setText("Välkommen");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        btnLoggaIn.setText("Logga in");
+        btnLoggaIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                btnLoggaInActionPerformed(evt);
+            }
+        });
+
+        txtValkommen.setText("Välkommen Agent");
+        txtValkommen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValkommenActionPerformed(evt);
+            }
+        });
+
+        txtAngeLosenord.setText("jPasswordField1");
+        txtAngeLosenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAngeLosenordActionPerformed(evt);
+            }
+        });
+
+        lblLosenord.setText("Lösenord:");
+
+        lblEpost.setText("E-post:");
+
+        txtAngeEpost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAngeEpostActionPerformed(evt);
             }
         });
 
@@ -49,35 +78,88 @@ public class Inloggning extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLoggaIn)
+                .addGap(42, 42, 42))
             .addGroup(layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAlien))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addGap(146, 146, 146)
+                .addComponent(txtValkommen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblLosenord, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                            .addComponent(lblEpost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAngeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(txtAngeEpost, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))))
+                .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAlien)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(txtValkommen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAngeEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAngeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(btnLoggaIn)
+                .addGap(64, 64, 64))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtValkommenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValkommenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtValkommenActionPerformed
+
+    private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
+        // TODO add your handling code here:
+        String epost = txtAngeEpost.getText();
+        String losenord = txtAngeLosenord.getText());
+        String fraga = ";
+              
+        resultat = idb.fetchRows(fraga);
+        
+        if
+    }//GEN-LAST:event_btnLoggaInActionPerformed
+
+    private void txtAngeLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeLosenordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAngeLosenordActionPerformed
+
+    private void txtAngeEpostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeEpostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAngeEpostActionPerformed
 
    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlien;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton btnLoggaIn;
+    private javax.swing.JLabel lblEpost;
+    private javax.swing.JLabel lblFelmeddelande;
+    private javax.swing.JLabel lblLosenord;
+    private javax.swing.JTextField txtAngeEpost;
+    private javax.swing.JPasswordField txtAngeLosenord;
+    private javax.swing.JTextField txtValkommen;
     // End of variables declaration//GEN-END:variables
+
+    
 }
