@@ -30,7 +30,7 @@ public class MiBProjektet {
             
         }
         
-        new Inloggning(idb).setVisible(true);
+        new ValjInloggning(idb).setVisible(true);
     }
     
 }

@@ -11,14 +11,14 @@ import oru.inf.InfDB;
  *
  * @author danie
  */
-public class Inloggning extends javax.swing.JFrame {
+public class AgentInloggning extends javax.swing.JFrame {
     
     private InfDB idb;
     private HashMap<String, String> anvandare;
     /**
      * Creates new form Inloggning
      */
-    public Inloggning(InfDB idb) {
+    public AgentInloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
         this.anvandare = new HashMap<String, String>();
@@ -99,7 +99,7 @@ public class Inloggning extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtAngeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(txtAngeEpost, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))))
+                            .addComponent(txtAngeEpost))))
                 .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
