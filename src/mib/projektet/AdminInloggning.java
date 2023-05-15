@@ -49,6 +49,11 @@ public class AdminInloggning extends javax.swing.JFrame {
         angeEpost.setColumns(5);
 
         btnLoggaIn.setText("Logga in");
+        btnLoggaIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggaInActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,6 +95,12 @@ public class AdminInloggning extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
+        // TODO add your handling code here:
+        
+        new AdminStartsida(idb).setVisible(true);
+    }//GEN-LAST:event_btnLoggaInActionPerformed
 
     
    
