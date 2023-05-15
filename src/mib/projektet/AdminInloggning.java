@@ -4,7 +4,9 @@
  */
 package mib.projektet;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 /**
  *
  * @author oskarjolesjo
@@ -32,7 +34,7 @@ public class AdminInloggning extends javax.swing.JFrame {
         lblAdminInlogg = new javax.swing.JLabel();
         txtEpost = new javax.swing.JLabel();
         txtLösenord = new javax.swing.JLabel();
-        angeLösenord = new javax.swing.JPasswordField();
+        angeLosenord = new javax.swing.JPasswordField();
         angeEpost = new javax.swing.JTextField();
         btnLoggaIn = new javax.swing.JButton();
 
@@ -44,7 +46,7 @@ public class AdminInloggning extends javax.swing.JFrame {
 
         txtLösenord.setText("Lösenord");
 
-        angeLösenord.setText("jPasswordField1");
+        angeLosenord.setText("jPasswordField1");
 
         angeEpost.setColumns(5);
 
@@ -72,7 +74,7 @@ public class AdminInloggning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnLoggaIn)
                     .addComponent(angeEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(angeLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(angeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -87,7 +89,7 @@ public class AdminInloggning extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLösenord)
-                    .addComponent(angeLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(angeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLoggaIn)
                 .addContainerGap(110, Short.MAX_VALUE))
@@ -98,17 +100,54 @@ public class AdminInloggning extends javax.swing.JFrame {
 
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
         // TODO add your handling code here:
-        
-        new AdminStartsida(idb).setVisible(true);
+
+        String epost = angeEpost.getText();
+        char[] charLosenord = angeLosenord.getPassword();
+        String losenord = new String(charLosenord);
+
+        try {
+            String sqlFraga = "SELECT losenord FROM agent WHERE Epost = '" + epost + "'";
+            String getAgentID = "SELECT Agent_ID FROM agent WHERE Epost = '" + epost + "'";
+            String agentID = idb.fetchSingle(getAgentID);
+            String sqlFragaAdmin = "SELECT Administrator FROM agent WHERE Agent_ID = " + agentID;
+            String sqlSvarLosenord = idb.fetchSingle(sqlFraga);
+            String sqlSvarAdmin = idb.fetchSingle(sqlFragaAdmin);
+
+            if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("J")) {
+                dispose();
+                new AdminStartsida(idb).setVisible(true);
+            } else if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("N")) {
+                JOptionPane.showMessageDialog(null, "Du är inte en administratör.");
+            } else {
+                JOptionPane.showMessageDialog(null, "E-post eller lösenord är felaktigt.");
+            }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
+
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
-    
+//private boolean validateLogin(String epost, String losenord) {
+//    boolean resultat = false;
+//    
+//    String query = "SELECT * FROM Anvandare WHERE Epost = '" + epost + "' AND Losenord = '" + losenord + "'";
+//    
+//    
+//    if(epost == ao@mib.net && losenord == planka){
+//        resultat = true;
+//    }
+//    
+//    
+//    
+//    
+//    return resultat; 
+//}
    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField angeEpost;
-    private javax.swing.JPasswordField angeLösenord;
+    private javax.swing.JPasswordField angeLosenord;
     private javax.swing.JButton btnLoggaIn;
     private javax.swing.JLabel lblAdminInlogg;
     private javax.swing.JLabel txtEpost;

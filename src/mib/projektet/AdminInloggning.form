@@ -38,7 +38,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnLoggaIn" min="-2" max="-2" attributes="0"/>
                   <Component id="angeEpost" min="-2" max="-2" attributes="0"/>
-                  <Component id="angeLösenord" min="-2" max="-2" attributes="0"/>
+                  <Component id="angeLosenord" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -57,7 +57,7 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="angeLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="angeLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnLoggaIn" min="-2" max="-2" attributes="0"/>
@@ -82,7 +82,7 @@
         <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="angeL&#xf6;senord">
+    <Component class="javax.swing.JPasswordField" name="angeLosenord">
       <Properties>
         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
       </Properties>
