@@ -131,14 +131,14 @@ public class AgentInloggning extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValkommenActionPerformed
 
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
-        // TODO add your handling code here:
-        String epost = txtAngeEpost.getText();
-        String losenord = txtAngeLosenord.getText());
-        String fraga = ";
-              
-        resultat = idb.fetchRows(fraga);
-        
-        if
+//        // TODO add your handling code here:
+//        String epost = txtAngeEpost.getText();
+//        String losenord = txtAngeLosenord.getText());
+//        String fraga = ";
+//              
+//        resultat = idb.fetchRows(fraga);
+//        
+//        if
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
     private void txtAngeLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeLosenordActionPerformed
