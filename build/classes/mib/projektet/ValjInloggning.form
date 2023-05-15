@@ -25,9 +25,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="btnAlien" min="-2" pref="100" max="-2" attributes="0"/>
               <EmptySpace pref="68" max="32767" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="102" max="-2" attributes="0"/>
+              <Component id="btnAgent" min="-2" pref="102" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
@@ -44,8 +44,8 @@
               <Component id="jTextField1" min="-2" pref="70" max="-2" attributes="0"/>
               <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="btnAlien" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="btnAgent" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
           </Group>
@@ -53,20 +53,20 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnAlien">
       <Properties>
         <Property name="text" type="java.lang.String" value="Alien"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlienActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnAgent">
       <Properties>
         <Property name="text" type="java.lang.String" value="Agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgentActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1">
