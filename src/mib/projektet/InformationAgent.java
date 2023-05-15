@@ -26,17 +26,44 @@ public class InformationAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnOmrådeschef = new javax.swing.JButton();
+        btnTopplistaAgent = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnOmrådeschef.setText("Se områdeschef");
+
+        btnTopplistaAgent.setText("Toplista agenter");
+
+        jLabel1.setText("Informations Center - Agent");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(btnOmrådeschef)
+                        .addGap(37, 37, 37)
+                        .addComponent(btnTopplistaAgent))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel1)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOmrådeschef)
+                    .addComponent(btnTopplistaAgent))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,5 +105,8 @@ public class InformationAgent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOmrådeschef;
+    private javax.swing.JButton btnTopplistaAgent;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
