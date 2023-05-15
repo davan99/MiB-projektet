@@ -14,7 +14,6 @@ import oru.inf.InfException;
  * @author danie
  */
 public class AgentInloggning extends javax.swing.JFrame {
-    
     private InfDB idb;
     private HashMap<String, String> anvandare;
     /**
@@ -23,7 +22,7 @@ public class AgentInloggning extends javax.swing.JFrame {
     public AgentInloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
-        this.anvandare = new HashMap<String, String>();
+       
     }
     
     /**
@@ -148,7 +147,7 @@ public class AgentInloggning extends javax.swing.JFrame {
 
             if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("N")) {
                 dispose();
-                new AgentStartsida(idb).setVisible(true);
+                new AgentStartsida(idb, agentID).setVisible(true);
             } else if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("J")) {
                 JOptionPane.showMessageDialog(null, "Du är en administratör, byt inloggning till administratör.");
             } else {

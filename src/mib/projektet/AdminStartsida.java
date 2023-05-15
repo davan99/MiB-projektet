@@ -10,12 +10,14 @@ import oru.inf.InfDB;
  */
 public class AdminStartsida extends javax.swing.JFrame {
 private InfDB idb;
+private final String agentID;
     /**
      * Creates new form AdminStartsida
      */
-    public AdminStartsida(InfDB idb) {
+    public AdminStartsida(InfDB idb, String agentID) {
         initComponents();
         this.idb = idb;
+        this.agentID = agentID;
     }
 
     /**
@@ -90,7 +92,7 @@ private InfDB idb;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new andraLosenord(idb).setVisible(true);
+        new andraLosenord(idb, agentID).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
    

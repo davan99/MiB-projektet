@@ -16,14 +16,14 @@ import oru.inf.InfException;
 public class AlienInloggning extends javax.swing.JFrame {
     
     private InfDB idb;
-    private HashMap<String, String> anvandare;
+   
     /**
      * Creates new form Inloggning
      */
     public AlienInloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
-        this.anvandare = new HashMap<String, String>();
+       
     }
     
     /**

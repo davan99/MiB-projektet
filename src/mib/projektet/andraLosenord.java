@@ -4,7 +4,9 @@
  */
 package mib.projektet;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -13,12 +15,14 @@ import oru.inf.InfDB;
 public class andraLosenord extends javax.swing.JFrame {
 
     private InfDB idb;
+    private final String agentID;
     /**
      * Creates new form andraLosenord
      */
-    public andraLosenord(InfDB idb) {
+    public andraLosenord(InfDB idb, String agentID) {
         initComponents();
         this.idb = idb;
+        this.agentID = agentID;
     }
 
     /**
@@ -31,10 +35,30 @@ public class andraLosenord extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        gamlaLosenord = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        nyaLosenord = new javax.swing.JTextField();
+        btnBytLosenord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Ändra lösenord");
+
+        jLabel2.setText("Nuvarande lösenord");
+
+        gamlaLosenord.setColumns(10);
+
+        jLabel3.setText("Nytt lösenord");
+
+        nyaLosenord.setColumns(10);
+
+        btnBytLosenord.setText("Byt lösenord");
+        btnBytLosenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBytLosenordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -43,23 +67,73 @@ public class andraLosenord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addComponent(jLabel1)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBytLosenord)
+                    .addComponent(gamlaLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nyaLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(gamlaLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(nyaLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBytLosenord)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBytLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLosenordActionPerformed
+                                              
+    String losenord = gamlaLosenord.getText();
+    String nyttLosenord = nyaLosenord.getText();
+    
+    try {
+        String sqlFraga = "SELECT losenord FROM Agent WHERE agent_id = '" + agentID + "'";
+        String valtLosenord = idb.fetchSingle(sqlFraga);
+        
+        if (losenord.equals(valtLosenord)) {
+            String updateQuery = "UPDATE Agent SET losenord = '" + nyttLosenord + "' WHERE agent_id = '" + agentID + "'";
+            idb.update(updateQuery);
+            
+            JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Felaktigt lösenord.");
+        }
+    } catch (InfException e) {
+       System.out.println("fel" + e.getMessage());
+    }
+
+
+    }//GEN-LAST:event_btnBytLosenordActionPerformed
+
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBytLosenord;
+    private javax.swing.JTextField gamlaLosenord;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField nyaLosenord;
     // End of variables declaration//GEN-END:variables
 }

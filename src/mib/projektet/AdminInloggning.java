@@ -115,7 +115,7 @@ public class AdminInloggning extends javax.swing.JFrame {
 
             if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("J")) {
                 dispose();
-                new AdminStartsida(idb).setVisible(true);
+                new AdminStartsida(idb, agentID).setVisible(true);
             } else if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("N")) {
                 JOptionPane.showMessageDialog(null, "Du är inte en administratör.");
             } else {
