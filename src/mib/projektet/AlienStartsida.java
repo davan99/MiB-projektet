@@ -36,6 +36,11 @@ private InfDB idb;
         jLabel1.setText("Alien Startsida");
 
         btnLosenord.setText("Ändra lösenord");
+        btnLosenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLosenordActionPerformed(evt);
+            }
+        });
 
         btnOmradeschef.setText("Visa områdeschef");
 
@@ -71,6 +76,10 @@ private InfDB idb;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLosenordActionPerformed
+        new andraLosenord(idb).setVisible(true);
+    }//GEN-LAST:event_btnLosenordActionPerformed
 
     /**
      * @param args the command line arguments
