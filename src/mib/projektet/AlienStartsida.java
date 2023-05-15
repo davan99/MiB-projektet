@@ -10,13 +10,14 @@ import oru.inf.InfDB;
  */
 public class AlienStartsida extends javax.swing.JFrame {
 private InfDB idb;
-
+private final String alienID;
     /**
      * Creates new form AlienStartsida
      */
-    public AlienStartsida(InfDB idb) {
+    public AlienStartsida(InfDB idb, String alienID) {
         initComponents();
         this.idb = idb;
+        this.alienID = alienID;
         
     }
 
@@ -80,7 +81,7 @@ private InfDB idb;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLosenordActionPerformed
-        
+        new andraLosenordAlien(idb, alienID).setVisible(true);
       
     }//GEN-LAST:event_btnLosenordActionPerformed
 

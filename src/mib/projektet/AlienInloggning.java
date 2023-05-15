@@ -148,7 +148,7 @@ public class AlienInloggning extends javax.swing.JFrame {
 
             if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord)) {
                 dispose();
-                new AlienStartsida(idb).setVisible(true);
+                new AlienStartsida(idb, alienID).setVisible(true);
             
             } else {
                 JOptionPane.showMessageDialog(null, "E-post eller lösenord är felaktigt.");
