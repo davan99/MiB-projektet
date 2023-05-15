@@ -139,6 +139,8 @@ public class AgentInloggning extends javax.swing.JFrame {
 //        resultat = idb.fetchRows(fraga);
 //        
 //        if
+
+new AgentStartsida(idb).setVisible(true);
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
     private void txtAngeLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeLosenordActionPerformed

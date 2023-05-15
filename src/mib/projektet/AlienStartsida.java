@@ -3,20 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib.projektet;
-
 import oru.inf.InfDB;
-
 /**
  *
  * @author oskarjolesjo
  */
-public class Utrustning extends javax.swing.JFrame {
-
-    private InfDB idb;
+public class AlienStartsida extends javax.swing.JFrame {
+private InfDB idb;
     /**
-     * Creates new form Utrustning
+     * Creates new form AlienStartsida
      */
-    public Utrustning(InfDB idb) {
+    public AlienStartsida(InfDB idb) {
         initComponents();
         this.idb = idb;
     }
@@ -31,55 +28,49 @@ public class Utrustning extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnLaggTillUtrustning = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnLosenord = new javax.swing.JButton();
+        btnOmradeschef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Utrustning");
+        jLabel1.setText("Alien Startsida");
 
-        btnLaggTillUtrustning.setText("Lägg till utrustning");
+        btnLosenord.setText("Ändra lösenord");
 
-        jButton2.setText("Visa Utrustning");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        btnOmradeschef.setText("Visa områdeschef");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOmradeschef)
+                .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(btnLaggTillUtrustning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(48, 48, 48))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btnLosenord)))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLaggTillUtrustning)
-                    .addComponent(jButton2))
-                .addContainerGap(216, Short.MAX_VALUE))
+                    .addComponent(btnLosenord)
+                    .addComponent(btnOmradeschef))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -87,8 +78,8 @@ public class Utrustning extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLaggTillUtrustning;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnLosenord;
+    private javax.swing.JButton btnOmradeschef;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
