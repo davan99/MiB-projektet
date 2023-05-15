@@ -6,6 +6,7 @@ package mib.projektet;
 
 import java.util.HashMap;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
