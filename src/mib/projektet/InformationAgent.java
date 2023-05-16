@@ -146,7 +146,7 @@ private final String agentID;
     }//GEN-LAST:event_RasSorteringActionPerformed
 
     private void btnTopplistaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaAgentActionPerformed
-        // TODO add your handling code here:
+        new infoTopLista(idb).setVisible(true);
     }//GEN-LAST:event_btnTopplistaAgentActionPerformed
 
     private void allFaktaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allFaktaAlienActionPerformed

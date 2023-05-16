@@ -4,17 +4,22 @@
  */
 package mib.projektet;
 
+import java.util.ArrayList;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author oskarjolesjo
  */
 public class infoTopLista extends javax.swing.JFrame {
-
+private InfDB idb;
     /**
      * Creates new form infoTopLista
      */
-    public infoTopLista() {
+    public infoTopLista(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -26,57 +31,159 @@ public class infoTopLista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        svealand = new javax.swing.JButton();
+        norrland = new javax.swing.JButton();
+        gotaland = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textRuta = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        jLabel1.setText("Visa Toplista för Agenter i angivet område");
+
+        jLabel2.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
+        jLabel2.setText("Välj område");
+
+        svealand.setText("Svealand");
+        svealand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svealandActionPerformed(evt);
+            }
+        });
+
+        norrland.setText("Norrland");
+        norrland.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                norrlandActionPerformed(evt);
+            }
+        });
+
+        gotaland.setText("Götaland");
+        gotaland.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gotalandActionPerformed(evt);
+            }
+        });
+
+        textRuta.setColumns(20);
+        textRuta.setRows(5);
+        jScrollPane1.setViewportView(textRuta);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(svealand)
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(norrland))
+                        .addGap(57, 57, 57)
+                        .addComponent(gotaland)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(svealand)
+                    .addComponent(norrland)
+                    .addComponent(gotaland))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(infoTopLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(infoTopLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(infoTopLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(infoTopLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void gotalandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gotalandActionPerformed
+        textRuta.setText("");
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new infoTopLista().setVisible(true);
+        ArrayList<String> allaAgenter;
+
+        try {
+            String sqlFraga = "SELECT agent.namn, COUNT(*) as alien_count FROM agent JOIN alien ON agent.agent_id = alien.ansvarig_agent where omrade = 2 group by agent.namn order by alien_count desc limit 3";
+            allaAgenter = idb.fetchColumn(sqlFraga);
+
+            for (String agentNamn : allaAgenter) {
+                textRuta.append(agentNamn + "\n");
             }
-        });
-    }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+
+
+    }//GEN-LAST:event_gotalandActionPerformed
+
+    private void svealandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svealandActionPerformed
+        textRuta.setText("");
+
+        ArrayList<String> allaAgenter;
+
+        try {
+            String sqlFraga = "SELECT agent.namn, COUNT(*) as alien_count FROM agent JOIN alien ON agent.agent_id = alien.ansvarig_agent where omrade = 1 group by agent.namn order by alien_count desc limit 3";
+            allaAgenter = idb.fetchColumn(sqlFraga);
+
+            for (String agentNamn : allaAgenter) {
+                textRuta.append(agentNamn + "\n");
+            }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+
+
+    }//GEN-LAST:event_svealandActionPerformed
+
+    private void norrlandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norrlandActionPerformed
+        textRuta.setText("");
+
+        ArrayList<String> allaAgenter;
+
+        try {
+            String sqlFraga = "SELECT agent.namn, COUNT(*) as alien_count FROM agent JOIN alien ON agent.agent_id = alien.ansvarig_agent where omrade = 4 group by agent.namn order by alien_count desc limit 3";
+            allaAgenter = idb.fetchColumn(sqlFraga);
+
+            for (String agentNamn : allaAgenter) {
+                textRuta.append(agentNamn + "\n");
+            }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+
+
+    }//GEN-LAST:event_norrlandActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton gotaland;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton norrland;
+    private javax.swing.JButton svealand;
+    private javax.swing.JTextArea textRuta;
     // End of variables declaration//GEN-END:variables
 }
