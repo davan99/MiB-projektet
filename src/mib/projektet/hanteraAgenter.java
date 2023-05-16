@@ -203,7 +203,7 @@ private InfDB idb;
 
     private void btnLaggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggTillActionPerformed
 
-        String datum = anstDatum.getText();
+        String datum = textAnst.getText();
         String namn = txtAngeNamn.getText();
         String epost = txtAngeEpost.getText();
         String losenord = pwAngeLosenord.getText();
