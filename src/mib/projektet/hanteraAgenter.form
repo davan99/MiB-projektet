@@ -46,22 +46,22 @@
                               <Component id="lblLosenord" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
                               <Component id="lblTelefon" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblOmrade" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="lblAnsvarigAgent" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="Admin" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lblEpost" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="lblNamn" min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="lblRegDatum" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="anstDatum" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtAngeOmrade" alignment="0" max="32767" attributes="0"/>
+                          <Component id="omradeID" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtAngeTelefon" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtAngeEpost" alignment="0" max="32767" attributes="0"/>
                           <Component id="pwAngeLosenord" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtAngeAgent" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtTilldelaId" max="32767" attributes="0"/>
+                          <Component id="admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="agentensid" max="32767" attributes="0"/>
                           <Component id="txtAngeNamn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtRegDatum" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textAnst" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -73,7 +73,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="84" max="-2" attributes="0"/>
+              <Component id="AgentID" min="-2" pref="84" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -84,8 +84,8 @@
               <Component id="lblRegistreraNyAlien" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="anstDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textAnst" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -110,17 +110,17 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAngeOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="omradeID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAngeAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="admin" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTilldelaId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="AgentID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="agentensid" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -135,7 +135,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblRegistreraNyAlien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registrera ny Alien"/>
+        <Property name="text" type="java.lang.String" value="Registrera ny Agent"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNamn">
@@ -160,12 +160,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblOmrade">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Omr&#xe5;de:"/>
+        <Property name="text" type="java.lang.String" value="Omr&#xe5;de-ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblAnsvarigAgent">
+    <Component class="javax.swing.JLabel" name="Admin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ansvarig agent:"/>
+        <Property name="text" type="java.lang.String" value="Admin"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAngeNamn">
@@ -195,32 +195,35 @@
         <Property name="text" type="java.lang.String" value="l&#xf6;senord"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblRegDatum">
+    <Component class="javax.swing.JLabel" name="anstDatum">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reg.datum:"/>
+        <Property name="text" type="java.lang.String" value="Anst-Datum"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtRegDatum">
+    <Component class="javax.swing.JTextField" name="textAnst">
       <Properties>
         <Property name="text" type="java.lang.String" value="yyyy-mm-dd"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRegDatumActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textAnstActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAngeOmrade">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtAngeAgent">
+    <Component class="javax.swing.JTextField" name="omradeID">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAngeAgentActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="omradeIDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JTextField" name="admin">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adminActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="AgentID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tilldela ID:"/>
+        <Property name="text" type="java.lang.String" value="Agent-ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTilldelaId">
+    <Component class="javax.swing.JTextField" name="agentensid">
     </Component>
   </SubComponents>
 </Form>
