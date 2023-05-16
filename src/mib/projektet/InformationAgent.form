@@ -81,7 +81,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnOmr&#xe5;deschef">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Se omr&#xe5;deschef"/>
+        <Property name="text" type="java.lang.String" value="Se omr&#xe5;deschef - platser"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOmr&#xe5;deschefActionPerformed"/>

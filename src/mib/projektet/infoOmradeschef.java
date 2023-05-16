@@ -4,17 +4,22 @@
  */
 package mib.projektet;
 
+import java.util.ArrayList;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author oskarjolesjo
  */
 public class infoOmradeschef extends javax.swing.JFrame {
-
+private InfDB idb;
     /**
      * Creates new form infoOmradeschef
      */
-    public infoOmradeschef() {
+    public infoOmradeschef (InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -26,57 +31,147 @@ public class infoOmradeschef extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        svealand = new javax.swing.JButton();
+        gotaland = new javax.swing.JButton();
+        norrland = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textRuta = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel1.setText("Se områdeschef på valt område");
+
+        jLabel2.setText("Välj område");
+
+        svealand.setText("Svealand");
+        svealand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svealandActionPerformed(evt);
+            }
+        });
+
+        gotaland.setText("Götaland");
+        gotaland.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gotalandActionPerformed(evt);
+            }
+        });
+
+        norrland.setText("Norrland");
+        norrland.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                norrlandActionPerformed(evt);
+            }
+        });
+
+        textRuta.setColumns(20);
+        textRuta.setRows(5);
+        jScrollPane1.setViewportView(textRuta);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(svealand)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gotaland)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(norrland)))
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addGap(71, 71, 71)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(svealand)
+                    .addComponent(gotaland)
+                    .addComponent(norrland))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(infoOmradeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(infoOmradeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(infoOmradeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(infoOmradeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void gotalandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gotalandActionPerformed
+        textRuta.setText("");
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new infoOmradeschef().setVisible(true);
+        try {
+            String sqlFraga = " select namn from agent join omradeschef on omradeschef.agent_id = agent.agent_ID where omradeschef.omrade = 2";
+            String omradeschef = idb.fetchSingle(sqlFraga);
+
+            
+                textRuta.append(omradeschef);
             }
-        });
-    }
+         catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+       
+    }//GEN-LAST:event_gotalandActionPerformed
+
+    private void svealandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svealandActionPerformed
+            textRuta.setText("");
+
+        try {
+            String sqlFraga = " select namn from agent join omradeschef on omradeschef.agent_id = agent.agent_ID where omradeschef.omrade = 1";
+            String omradeschef = idb.fetchSingle(sqlFraga);
+
+            
+                textRuta.append(omradeschef);
+            }
+         catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+    }//GEN-LAST:event_svealandActionPerformed
+
+    private void norrlandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norrlandActionPerformed
+            textRuta.setText("");
+
+        try {
+            String sqlFraga = " select namn from agent join omradeschef on omradeschef.agent_id = agent.agent_ID where omradeschef.omrade = 4";
+            String omradeschef = idb.fetchSingle(sqlFraga);
+
+            
+                textRuta.append(omradeschef);
+            }
+         catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+    }//GEN-LAST:event_norrlandActionPerformed
+
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton gotaland;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton norrland;
+    private javax.swing.JButton svealand;
+    private javax.swing.JTextArea textRuta;
     // End of variables declaration//GEN-END:variables
 }

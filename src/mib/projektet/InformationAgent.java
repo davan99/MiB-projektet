@@ -40,7 +40,7 @@ private final String agentID;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnOmrådeschef.setText("Se områdeschef");
+        btnOmrådeschef.setText("Se områdeschef - platser");
         btnOmrådeschef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOmrådeschefActionPerformed(evt);
@@ -154,7 +154,7 @@ private final String agentID;
     }//GEN-LAST:event_allFaktaAlienActionPerformed
 
     private void btnOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådeschefActionPerformed
-        // TODO add your handling code here:
+        new infoOmradeschef(idb).setVisible(true);
     }//GEN-LAST:event_btnOmrådeschefActionPerformed
 
     /**
