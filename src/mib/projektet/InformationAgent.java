@@ -35,7 +35,7 @@ private final String agentID;
         jLabel1 = new javax.swing.JLabel();
         angivenPlats = new javax.swing.JButton();
         RasSortering = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        DatumAlien = new javax.swing.JButton();
         allFaktaAlien = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,10 +70,10 @@ private final String agentID;
             }
         });
 
-        jButton3.setText("Registerade aliens mellan vissa datum");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        DatumAlien.setText("Registerade aliens mellan vissa datum");
+        DatumAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                DatumAlienActionPerformed(evt);
             }
         });
 
@@ -91,7 +91,7 @@ private final String agentID;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RasSortering, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)
+                    .addComponent(DatumAlien)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -126,16 +126,16 @@ private final String agentID;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(allFaktaAlien)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DatumAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void DatumAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatumAlienActionPerformed
+       new infoDatum(idb).setVisible(true);
+    }//GEN-LAST:event_DatumAlienActionPerformed
 
     private void angivenPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angivenPlatsActionPerformed
         new infoAngivenPlats(idb).setVisible(true);
@@ -146,7 +146,7 @@ private final String agentID;
     }//GEN-LAST:event_RasSorteringActionPerformed
 
     private void btnTopplistaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaAgentActionPerformed
-        // TODO add your handling code here:
+        new infoTopLista(idb).setVisible(true);
     }//GEN-LAST:event_btnTopplistaAgentActionPerformed
 
     private void allFaktaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allFaktaAlienActionPerformed
@@ -163,12 +163,12 @@ private final String agentID;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DatumAlien;
     private javax.swing.JButton RasSortering;
     private javax.swing.JButton allFaktaAlien;
     private javax.swing.JButton angivenPlats;
     private javax.swing.JButton btnOmrådeschef;
     private javax.swing.JButton btnTopplistaAgent;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
