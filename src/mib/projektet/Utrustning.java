@@ -11,14 +11,15 @@ import oru.inf.InfDB;
  * @author oskarjolesjo
  */
 public class Utrustning extends javax.swing.JFrame {
-
+    private final String agentID;
     private InfDB idb;
     /**
      * Creates new form Utrustning
      */
-    public Utrustning(InfDB idb) {
+    public Utrustning(InfDB idb, String agentID) {
         initComponents();
         this.idb = idb;
+        this.agentID = agentID;
     }
 
     /**

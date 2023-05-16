@@ -119,7 +119,7 @@ new andraLosenord(idb, agentID).setVisible(true);
 
     private void btnUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUtrustningActionPerformed
     
-    new Utrustning(idb).setVisible(true);
+    new Utrustning(idb, agentID).setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUtrustningActionPerformed
 
@@ -129,7 +129,7 @@ new andraLosenord(idb, agentID).setVisible(true);
     }//GEN-LAST:event_btnAlienActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    new InformationAgent(idb).setVisible(true);
+    new InformationAgent(idb, agentID).setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
