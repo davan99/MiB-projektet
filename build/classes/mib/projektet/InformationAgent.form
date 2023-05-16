@@ -25,6 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< Updated upstream
                   <Component id="jButton2" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
                   <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
@@ -48,12 +49,27 @@
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="225" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+=======
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="btnOmrådeschef" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="btnTopplistaAgent" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+<<<<<<< Updated upstream
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -74,6 +90,16 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton3" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace pref="73" max="32767" attributes="0"/>
+=======
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnOmrådeschef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTopplistaAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="212" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,23 +109,30 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Se omr&#xe5;deschef"/>
       </Properties>
+<<<<<<< Updated upstream
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOmr&#xe5;deschefActionPerformed"/>
       </Events>
+=======
+>>>>>>> Stashed changes
     </Component>
     <Component class="javax.swing.JButton" name="btnTopplistaAgent">
       <Properties>
         <Property name="text" type="java.lang.String" value="Toplista agenter"/>
       </Properties>
+<<<<<<< Updated upstream
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTopplistaAgentActionPerformed"/>
       </Events>
+=======
+>>>>>>> Stashed changes
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Informations Center - Agent"/>
       </Properties>
     </Component>
+<<<<<<< Updated upstream
     <Component class="javax.swing.JButton" name="angivenPlats">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visa aliens p&#xe5; angiven plats"/>
@@ -132,5 +165,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="allFaktaAlienActionPerformed"/>
       </Events>
     </Component>
+=======
+>>>>>>> Stashed changes
   </SubComponents>
 </Form>
