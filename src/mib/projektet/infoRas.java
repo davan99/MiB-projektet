@@ -4,17 +4,22 @@
  */
 package mib.projektet;
 
+import java.util.ArrayList;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author oskarjolesjo
  */
 public class infoRas extends javax.swing.JFrame {
-
+private InfDB idb;
     /**
      * Creates new form infoRas
      */
-    public infoRas() {
+    public infoRas(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
 
     /**
@@ -26,57 +31,147 @@ public class infoRas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textRuta = new javax.swing.JTextArea();
+        boglodite = new javax.swing.JButton();
+        squid = new javax.swing.JButton();
+        worm = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Kohinoor Bangla", 1, 18)); // NOI18N
+        jLabel1.setText("Lista alla Aliens av viss ras");
+
+        jLabel2.setText("Väl ras");
+
+        textRuta.setColumns(20);
+        textRuta.setRows(5);
+        jScrollPane1.setViewportView(textRuta);
+
+        boglodite.setText("Boglodite");
+        boglodite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bogloditeActionPerformed(evt);
+            }
+        });
+
+        squid.setText("Squid");
+        squid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                squidActionPerformed(evt);
+            }
+        });
+
+        worm.setText("Worm");
+        worm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wormActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(boglodite)
+                        .addGap(18, 18, 18)
+                        .addComponent(squid)
+                        .addGap(18, 18, 18)
+                        .addComponent(worm))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(boglodite)
+                    .addComponent(squid)
+                    .addComponent(worm))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(infoRas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(infoRas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(infoRas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(infoRas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void bogloditeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bogloditeActionPerformed
+        textRuta.setText("");
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new infoRas().setVisible(true);
+        ArrayList<String> allaNamn;
+        try {
+            String sqlFraga = " Select namn from Alien join Boglodite on Alien.Alien_ID = Boglodite.Alien_ID";
+            allaNamn = idb.fetchColumn(sqlFraga);
+
+            for (String alienNamn : allaNamn) {
+                textRuta.append(alienNamn + "\n");
             }
-        });
-    }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+    }//GEN-LAST:event_bogloditeActionPerformed
+
+    private void squidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_squidActionPerformed
+           textRuta.setText("");
+        
+          ArrayList<String> allaNamn;
+       try { 
+         String sqlFraga = " Select namn from Alien join Squid on Alien.Alien_ID = Squid.Alien_ID";
+         allaNamn = idb.fetchColumn(sqlFraga);
+       
+       for (String alienNamn : allaNamn) {
+                textRuta.append(alienNamn + "\n");
+            }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+    }//GEN-LAST:event_squidActionPerformed
+
+    private void wormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wormActionPerformed
+          textRuta.setText("");
+        
+          ArrayList<String> allaNamn;
+       try { 
+         String sqlFraga = " Select namn from Alien join Worm on Alien.Alien_ID = Worm.Alien_ID";
+         allaNamn = idb.fetchColumn(sqlFraga);
+       
+       for (String alienNamn : allaNamn) {
+                textRuta.append(alienNamn + "\n");
+            }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+
+        }
+    }//GEN-LAST:event_wormActionPerformed
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boglodite;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton squid;
+    private javax.swing.JTextArea textRuta;
+    private javax.swing.JButton worm;
     // End of variables declaration//GEN-END:variables
 }
