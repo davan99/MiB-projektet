@@ -34,7 +34,7 @@ private final String agentID;
         btnTopplistaAgent = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         angivenPlats = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        RasSortering = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         allFaktaAlien = new javax.swing.JButton();
 
@@ -63,10 +63,10 @@ private final String agentID;
             }
         });
 
-        jButton2.setText("Visa alla aliens av vis ras");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        RasSortering.setText("Visa alla aliens av vis ras");
+        RasSortering.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                RasSorteringActionPerformed(evt);
             }
         });
 
@@ -90,7 +90,7 @@ private final String agentID;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RasSortering, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +120,7 @@ private final String agentID;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(angivenPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(RasSortering, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnTopplistaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -141,9 +141,9 @@ private final String agentID;
         new infoAngivenPlats(idb).setVisible(true);
     }//GEN-LAST:event_angivenPlatsActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void RasSorteringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RasSorteringActionPerformed
+        new infoRas(idb).setVisible(true);
+    }//GEN-LAST:event_RasSorteringActionPerformed
 
     private void btnTopplistaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaAgentActionPerformed
         // TODO add your handling code here:
@@ -163,11 +163,11 @@ private final String agentID;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton RasSortering;
     private javax.swing.JButton allFaktaAlien;
     private javax.swing.JButton angivenPlats;
     private javax.swing.JButton btnOmrådeschef;
     private javax.swing.JButton btnTopplistaAgent;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
