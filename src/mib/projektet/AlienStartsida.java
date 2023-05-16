@@ -4,18 +4,22 @@
  */
 package mib.projektet;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 /**
  *
  * @author oskarjolesjo
  */
 public class AlienStartsida extends javax.swing.JFrame {
 private InfDB idb;
+private final String alienID;
     /**
      * Creates new form AlienStartsida
      */
-    public AlienStartsida(InfDB idb) {
+    public AlienStartsida(InfDB idb, String alienID) {
         initComponents();
         this.idb = idb;
+        this.alienID = alienID;
+        
     }
 
     /**
@@ -29,7 +33,10 @@ private InfDB idb;
 
         jLabel1 = new javax.swing.JLabel();
         btnLosenord = new javax.swing.JButton();
-        btnOmradeschef = new javax.swing.JButton();
+        visaOmradeschef = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        Omradeschef = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,25 +49,37 @@ private InfDB idb;
             }
         });
 
-        btnOmradeschef.setText("Visa områdeschef");
+        visaOmradeschef.setText("Visa områdeschef");
+        visaOmradeschef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visaOmradeschefActionPerformed(evt);
+            }
+        });
+
+        Omradeschef.setText("Områdeschef");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnOmradeschef)
-                .addGap(57, 57, 57))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(btnLosenord)
+                .addGap(103, 103, 103)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btnLosenord)))
-                .addContainerGap(159, Short.MAX_VALUE))
+                    .addComponent(visaOmradeschef)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Omradeschef)
+                        .addGap(27, 27, 27)))
+                .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,16 +89,34 @@ private InfDB idb;
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLosenord)
-                    .addComponent(btnOmradeschef))
-                .addContainerGap(210, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(visaOmradeschef))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Omradeschef)
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLosenordActionPerformed
-        new andraLosenord(idb).setVisible(true);
+        new andraLosenordAlien(idb, alienID).setVisible(true);
+      
     }//GEN-LAST:event_btnLosenordActionPerformed
+
+    private void visaOmradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaOmradeschefActionPerformed
+     
+        try {
+            String sqlFraga = "SELECT Agent.namn from agent join Omradeschef on Agent.Agent_ID = Omradeschef.Agent_ID join Omrade on Omradeschef.Omrade = Omrades_ID join plats on Omrade.Omrades_ID = Plats.Finns_I join Alien on Finns_I = Plats where Alien_ID = '" + alienID + "' group by Agent.Namn";
+        String chef = idb.fetchSingle(sqlFraga);
+        Omradeschef.setText(chef);
+        }
+        catch (InfException e) {
+       System.out.println("fel" + e.getMessage());
+        }
+         
+    }//GEN-LAST:event_visaOmradeschefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -87,8 +124,11 @@ private InfDB idb;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Omradeschef;
     private javax.swing.JButton btnLosenord;
-    private javax.swing.JButton btnOmradeschef;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton visaOmradeschef;
     // End of variables declaration//GEN-END:variables
 }

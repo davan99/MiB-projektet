@@ -45,10 +45,10 @@
                           <Component id="lblLosenord" pref="101" max="32767" attributes="0"/>
                           <Component id="lblEpost" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtAngeLosenord" pref="0" max="32767" attributes="0"/>
-                          <Component id="txtAngeEpost" max="32767" attributes="0"/>
+                          <Component id="angeLosenord" pref="0" max="32767" attributes="0"/>
+                          <Component id="angeEpost" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -64,11 +64,11 @@
               <EmptySpace pref="27" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblEpost" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="txtAngeEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="angeEpost" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtAngeLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="angeLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblLosenord" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -97,12 +97,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValkommenActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtAngeLosenord">
+    <Component class="javax.swing.JPasswordField" name="angeLosenord">
       <Properties>
+        <Property name="columns" type="int" value="10"/>
         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAngeLosenordActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="angeLosenordActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLosenord">
@@ -115,9 +116,12 @@
         <Property name="text" type="java.lang.String" value="E-post:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAngeEpost">
+    <Component class="javax.swing.JTextField" name="angeEpost">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAngeEpostActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="angeEpostActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFelmeddelande">

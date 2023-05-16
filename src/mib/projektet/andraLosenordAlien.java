@@ -12,17 +12,17 @@ import oru.inf.InfException;
  *
  * @author oskarjolesjo
  */
-public class andraLosenord extends javax.swing.JFrame {
+public class andraLosenordAlien extends javax.swing.JFrame {
 
     private InfDB idb;
-    private final String agentID;
+    private final String alienID;
     /**
      * Creates new form andraLosenord
      */
-    public andraLosenord(InfDB idb, String agentID) {
+    public andraLosenordAlien(InfDB idb, String alienID) {
         initComponents();
         this.idb = idb;
-        this.agentID = agentID;
+        this.alienID = alienID;
     }
 
     /**
@@ -107,11 +107,11 @@ public class andraLosenord extends javax.swing.JFrame {
     String nyttLosenord = nyaLosenord.getText();
     
     try {
-        String sqlFraga = "SELECT losenord FROM Agent WHERE agent_id = '" + agentID + "'";
+        String sqlFraga = "SELECT losenord FROM Alien WHERE Alien_ID = '" + alienID + "'";
         String valtLosenord = idb.fetchSingle(sqlFraga);
         
         if (losenord.equals(valtLosenord)) {
-            String updateQuery = "UPDATE Agent SET losenord = '" + nyttLosenord + "' WHERE agent_id = '" + agentID + "'";
+            String updateQuery = "UPDATE Alien SET losenord = '" + nyttLosenord + "' WHERE Alien_ID = '" + alienID + "'";
             idb.update(updateQuery);
             
             JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats.");

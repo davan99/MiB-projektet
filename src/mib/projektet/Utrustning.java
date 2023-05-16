@@ -32,7 +32,7 @@ public class Utrustning extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnLaggTillUtrustning = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnVisaUtrustning = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,10 +40,10 @@ public class Utrustning extends javax.swing.JFrame {
 
         btnLaggTillUtrustning.setText("Lägg till utrustning");
 
-        jButton2.setText("Visa Utrustning");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnVisaUtrustning.setText("Visa Utrustning");
+        btnVisaUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnVisaUtrustningActionPerformed(evt);
             }
         });
 
@@ -59,7 +59,7 @@ public class Utrustning extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btnLaggTillUtrustning)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnVisaUtrustning)
                 .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
@@ -70,16 +70,16 @@ public class Utrustning extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLaggTillUtrustning)
-                    .addComponent(jButton2))
+                    .addComponent(btnVisaUtrustning))
                 .addContainerGap(216, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,7 +88,7 @@ public class Utrustning extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLaggTillUtrustning;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnVisaUtrustning;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

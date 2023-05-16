@@ -10,12 +10,14 @@ import oru.inf.InfDB;
  */
 public class AdminStartsida extends javax.swing.JFrame {
 private InfDB idb;
+private final String agentID;
     /**
      * Creates new form AdminStartsida
      */
-    public AdminStartsida(InfDB idb) {
+    public AdminStartsida(InfDB idb, String agentID) {
         initComponents();
         this.idb = idb;
+        this.agentID = agentID;
     }
 
     /**
@@ -38,6 +40,11 @@ private InfDB idb;
         jLabel1.setText("Välkommen Administratör");
 
         jButton1.setText("Ändra lösenord");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Registrera Alien");
 
@@ -82,6 +89,11 @@ private InfDB idb;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new andraLosenord(idb, agentID).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
 

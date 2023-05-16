@@ -5,6 +5,7 @@
 package mib.projektet;
 
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 //import oru.inf.InfDB;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -13,7 +14,6 @@ import oru.inf.InfException;
  * @author danie
  */
 public class AgentInloggning extends javax.swing.JFrame {
-    
     private InfDB idb;
     private HashMap<String, String> anvandare;
     /**
@@ -22,7 +22,7 @@ public class AgentInloggning extends javax.swing.JFrame {
     public AgentInloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
-        this.anvandare = new HashMap<String, String>();
+       
     }
     
     /**
@@ -36,10 +36,10 @@ public class AgentInloggning extends javax.swing.JFrame {
 
         btnLoggaIn = new javax.swing.JButton();
         txtValkommen = new javax.swing.JTextField();
-        txtAngeLosenord = new javax.swing.JPasswordField();
+        angeLosenord = new javax.swing.JPasswordField();
         lblLosenord = new javax.swing.JLabel();
         lblEpost = new javax.swing.JLabel();
-        txtAngeEpost = new javax.swing.JTextField();
+        angeEpost = new javax.swing.JTextField();
         lblFelmeddelande = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,11 +58,11 @@ public class AgentInloggning extends javax.swing.JFrame {
             }
         });
 
-        txtAngeLosenord.setColumns(5);
-        txtAngeLosenord.setText("jPasswordField1");
-        txtAngeLosenord.addActionListener(new java.awt.event.ActionListener() {
+        angeLosenord.setColumns(5);
+        angeLosenord.setText("jPasswordField1");
+        angeLosenord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAngeLosenordActionPerformed(evt);
+                angeLosenordActionPerformed(evt);
             }
         });
 
@@ -70,10 +70,10 @@ public class AgentInloggning extends javax.swing.JFrame {
 
         lblEpost.setText("E-post:");
 
-        txtAngeEpost.setColumns(5);
-        txtAngeEpost.addActionListener(new java.awt.event.ActionListener() {
+        angeEpost.setColumns(5);
+        angeEpost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAngeEpostActionPerformed(evt);
+                angeEpostActionPerformed(evt);
             }
         });
 
@@ -101,8 +101,8 @@ public class AgentInloggning extends javax.swing.JFrame {
                             .addComponent(lblEpost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtAngeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(txtAngeEpost))))
+                            .addComponent(angeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(angeEpost))))
                 .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
@@ -113,10 +113,10 @@ public class AgentInloggning extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAngeEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(angeEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAngeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(angeLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,36 +133,53 @@ public class AgentInloggning extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValkommenActionPerformed
 
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
-//        // TODO add your handling code here:
-//        String epost = txtAngeEpost.getText();
-//        String losenord = txtAngeLosenord.getText());
-//        String fraga = ";
-//              
-//        resultat = idb.fetchRows(fraga);
-//        
-//        if
+        String epost = angeEpost.getText();
+        char[] charLosenord = angeLosenord.getPassword();
+        String losenord = new String(charLosenord);
 
-new AgentStartsida(idb).setVisible(true);
+        try {
+            String sqlFraga = "SELECT losenord FROM agent WHERE Epost = '" + epost + "'";
+            String getAgentID = "SELECT Agent_ID FROM agent WHERE Epost = '" + epost + "'";
+            String agentID = idb.fetchSingle(getAgentID);
+            String sqlFragaAdmin = "SELECT Administrator FROM agent WHERE Agent_ID = " + agentID;
+            String sqlSvarLosenord = idb.fetchSingle(sqlFraga);
+            String sqlSvarAdmin = idb.fetchSingle(sqlFragaAdmin);
+
+            if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("N")) {
+                dispose();
+                new AgentStartsida(idb, agentID).setVisible(true);
+            } else if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("J")) {
+                JOptionPane.showMessageDialog(null, "Du är en administratör, byt inloggning till administratör.");
+            } else {
+                JOptionPane.showMessageDialog(null, "E-post eller lösenord är felaktigt.");
+            }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
+
+       
+
+
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
-    private void txtAngeLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeLosenordActionPerformed
+    private void angeLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angeLosenordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAngeLosenordActionPerformed
+    }//GEN-LAST:event_angeLosenordActionPerformed
 
-    private void txtAngeEpostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeEpostActionPerformed
+    private void angeEpostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angeEpostActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAngeEpostActionPerformed
+    }//GEN-LAST:event_angeEpostActionPerformed
 
    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField angeEpost;
+    private javax.swing.JPasswordField angeLosenord;
     private javax.swing.JButton btnLoggaIn;
     private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblFelmeddelande;
     private javax.swing.JLabel lblLosenord;
-    private javax.swing.JTextField txtAngeEpost;
-    private javax.swing.JPasswordField txtAngeLosenord;
     private javax.swing.JTextField txtValkommen;
     // End of variables declaration//GEN-END:variables
 
