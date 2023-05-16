@@ -48,10 +48,20 @@ public class andraLosenordAlien extends javax.swing.JFrame {
         jLabel2.setText("Nuvarande lösenord");
 
         gamlaLosenord.setColumns(10);
+        gamlaLosenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gamlaLosenordActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nytt lösenord");
 
         nyaLosenord.setColumns(10);
+        nyaLosenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nyaLosenordActionPerformed(evt);
+            }
+        });
 
         btnBytLosenord.setText("Byt lösenord");
         btnBytLosenord.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +134,14 @@ public class andraLosenordAlien extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnBytLosenordActionPerformed
+
+    private void gamlaLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamlaLosenordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gamlaLosenordActionPerformed
+
+    private void nyaLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nyaLosenordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nyaLosenordActionPerformed
 
 
 

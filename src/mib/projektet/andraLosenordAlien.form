@@ -81,6 +81,9 @@
       <Properties>
         <Property name="columns" type="int" value="10"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gamlaLosenordActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -91,6 +94,9 @@
       <Properties>
         <Property name="columns" type="int" value="10"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nyaLosenordActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBytLosenord">
       <Properties>
