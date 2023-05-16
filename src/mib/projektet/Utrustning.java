@@ -34,23 +34,30 @@ public class Utrustning extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        laggTillUtrustning = new javax.swing.JButton();
-        visaUtrustning = new javax.swing.JButton();
+        btnLaggTillUtrustning = new javax.swing.JButton();
+        btnVisaUtrustning = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         textRuta = new javax.swing.JTextArea();
+        txtAngeUtrustning = new javax.swing.JTextField();
+        lblSkrivInUtrustning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Kaiti SC", 1, 24)); // NOI18N
         jLabel1.setText("Utrustning");
 
-        laggTillUtrustning.setText("Lägg till utrustning");
-
-        visaUtrustning.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        visaUtrustning.setText("Visa Utrustning");
-        visaUtrustning.addActionListener(new java.awt.event.ActionListener() {
+        btnLaggTillUtrustning.setText("Lägg till utrustning");
+        btnLaggTillUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                visaUtrustningActionPerformed(evt);
+                btnLaggTillUtrustningActionPerformed(evt);
+            }
+        });
+
+        btnVisaUtrustning.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        btnVisaUtrustning.setText("Visa befintlig utrustning");
+        btnVisaUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaUtrustningActionPerformed(evt);
             }
         });
 
@@ -58,44 +65,60 @@ public class Utrustning extends javax.swing.JFrame {
         textRuta.setRows(5);
         jScrollPane1.setViewportView(textRuta);
 
+        txtAngeUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAngeUtrustningActionPerformed(evt);
+            }
+        });
+
+        lblSkrivInUtrustning.setText("Skriv in utrustning:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 89, Short.MAX_VALUE)
+                .addComponent(lblSkrivInUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLaggTillUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtAngeUtrustning))
+                .addGap(61, 61, 61))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(laggTillUtrustning))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnVisaUtrustning)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(visaUtrustning))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                        .addGap(132, 132, 132)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(laggTillUtrustning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(visaUtrustning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAngeUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSkrivInUtrustning))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLaggTillUtrustning)
+                .addGap(24, 24, 24)
+                .addComponent(btnVisaUtrustning)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void visaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaUtrustningActionPerformed
+    private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
         textRuta.setText("");
         ArrayList<String> allUtrustning;
         try {
@@ -110,7 +133,15 @@ public class Utrustning extends javax.swing.JFrame {
             System.out.println("fel" + e.getMessage());
 
         }
-    }//GEN-LAST:event_visaUtrustningActionPerformed
+    }//GEN-LAST:event_btnVisaUtrustningActionPerformed
+
+    private void btnLaggTillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggTillUtrustningActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLaggTillUtrustningActionPerformed
+
+    private void txtAngeUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeUtrustningActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAngeUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,10 +149,12 @@ public class Utrustning extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLaggTillUtrustning;
+    private javax.swing.JButton btnVisaUtrustning;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton laggTillUtrustning;
+    private javax.swing.JLabel lblSkrivInUtrustning;
     private javax.swing.JTextArea textRuta;
-    private javax.swing.JButton visaUtrustning;
+    private javax.swing.JTextField txtAngeUtrustning;
     // End of variables declaration//GEN-END:variables
 }
