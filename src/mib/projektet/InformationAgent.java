@@ -36,7 +36,7 @@ private final String agentID;
         angivenPlats = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        allFaktaAlien = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,10 +77,10 @@ private final String agentID;
             }
         });
 
-        jButton4.setText("All infomation om en alien");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        allFaktaAlien.setText("All infomation om en alien");
+        allFaktaAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                allFaktaAlienActionPerformed(evt);
             }
         });
 
@@ -101,7 +101,7 @@ private final String agentID;
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnTopplistaAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(allFaktaAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -124,7 +124,7 @@ private final String agentID;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnTopplistaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)))
+                        .addComponent(allFaktaAlien)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
@@ -149,9 +149,9 @@ private final String agentID;
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTopplistaAgentActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void allFaktaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allFaktaAlienActionPerformed
+       new infoAllFaktaAlien(idb).setVisible(true);
+    }//GEN-LAST:event_allFaktaAlienActionPerformed
 
     private void btnOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådeschefActionPerformed
         // TODO add your handling code here:
@@ -163,12 +163,12 @@ private final String agentID;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton allFaktaAlien;
     private javax.swing.JButton angivenPlats;
     private javax.swing.JButton btnOmrådeschef;
     private javax.swing.JButton btnTopplistaAgent;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

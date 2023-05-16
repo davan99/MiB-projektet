@@ -4,17 +4,25 @@
  */
 package mib.projektet;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author oskarjolesjo
  */
 public class infoAllFaktaAlien extends javax.swing.JFrame {
-
+private InfDB idb;
     /**
      * Creates new form infoAllFaktaAlien
      */
-    public infoAllFaktaAlien() {
+    public infoAllFaktaAlien(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        fyllCombo();
     }
 
     /**
@@ -26,57 +34,117 @@ public class infoAllFaktaAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        comboAlien = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textRuta = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
+        jLabel1.setText("Visa all fakta om alien");
+
+        jLabel2.setText("Välj alien");
+
+        comboAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboAlienActionPerformed(evt);
+            }
+        });
+
+        textRuta.setColumns(20);
+        textRuta.setRows(5);
+        jScrollPane1.setViewportView(textRuta);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(47, 47, 47)
+                        .addComponent(comboAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(comboAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAlienActionPerformed
+      
+        textRuta.setText("");
+
+        ArrayList<HashMap<String, String>> soktaAlien;
+
+        try {
+            String valdAlien = comboAlien.getSelectedItem().toString();
+            String sqlFraga = "SELECT * FROM alien where alien.namn = '" + valdAlien + "'";
+            soktaAlien = idb.fetchRows(sqlFraga);
+
+            for (HashMap<String, String> alien : soktaAlien) {
+                textRuta.append( "Alien-ID" + "\t");
+                textRuta.append("RegDatum " + "\t");
+                textRuta.append("Epost " + "\t" + "\t");
+                textRuta.append("Lösenord " + "\t");
+                textRuta.append("Namn " + "\t");
+                textRuta.append("Plats " + "\t");
+                textRuta.append("Ansvarig Agent " + "\n");
+                textRuta.append(alien.get("Alien_ID") + "\t");
+                textRuta.append(alien.get("Registreringsdatum") + "\t");
+                textRuta.append(alien.get("Epost") + "\t");
+                textRuta.append(alien.get("Losenord") + "\t");
+                textRuta.append(alien.get("Namn") + "\t");
+                textRuta.append(alien.get("Plats") + "\t");
+                textRuta.append(alien.get("Ansvarig_Agent") + "\n");
+            }
+        } catch (InfException e) {
+       System.out.println("fel" + e.getMessage());
+        }
+    }//GEN-LAST:event_comboAlienActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(infoAllFaktaAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(infoAllFaktaAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(infoAllFaktaAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(infoAllFaktaAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void fyllCombo() {
+        String sqlFraga = " SELECT namn from alien";
+        ArrayList<String> allaAlien;
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new infoAllFaktaAlien().setVisible(true);
+        try {
+            allaAlien = idb.fetchColumn(sqlFraga);
+
+            for (String alien : allaAlien) {
+                comboAlien.addItem(alien);
             }
-        });
+        } 
+        catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboAlien;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea textRuta;
     // End of variables declaration//GEN-END:variables
 }
