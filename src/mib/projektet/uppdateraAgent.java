@@ -5,6 +5,8 @@
 package mib.projektet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -42,15 +44,17 @@ private InfDB idb;
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         comboAgent = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        agentid = new javax.swing.JTextField();
+        namn = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        admin = new javax.swing.JTextField();
+        telefon = new javax.swing.JTextField();
+        epost = new javax.swing.JTextField();
+        losenord = new javax.swing.JTextField();
+        omrade = new javax.swing.JTextField();
+        visaUppgifter = new javax.swing.JButton();
+        uppdateraAgent = new javax.swing.JButton();
+        nuvarandeAgentID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,68 +77,52 @@ private InfDB idb;
 
         jLabel9.setText("Välj Agent");
 
-        comboAgent.addActionListener(new java.awt.event.ActionListener() {
+        agentid.setColumns(8);
+        agentid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboAgentActionPerformed(evt);
+                agentidActionPerformed(evt);
             }
         });
 
-        jTextField1.setColumns(8);
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setColumns(8);
-        jTextField2.setText("jTextField2");
+        namn.setColumns(8);
+        namn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namnActionPerformed(evt);
+            }
+        });
 
         jTextField3.setText("jTextField2");
 
-        jTextField4.setColumns(8);
-        jTextField4.setText("jTextField2");
+        admin.setColumns(8);
 
-        jTextField5.setColumns(8);
-        jTextField5.setText("jTextField2");
+        telefon.setColumns(8);
 
-        jTextField8.setColumns(8);
-        jTextField8.setText("jTextField8");
+        epost.setColumns(8);
 
-        jTextField9.setColumns(8);
-        jTextField9.setText("jTextField9");
+        losenord.setColumns(8);
 
-        jTextField10.setColumns(8);
-        jTextField10.setText("jTextField10");
+        omrade.setColumns(8);
 
-        jButton1.setText("Uppdatera");
+        visaUppgifter.setText("Visa Uppgifter");
+        visaUppgifter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visaUppgifterActionPerformed(evt);
+            }
+        });
+
+        uppdateraAgent.setText("Uppdatera Agent");
+        uppdateraAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uppdateraAgentActionPerformed(evt);
+            }
+        });
+
+        nuvarandeAgentID.setText("jLabel10");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(11, 11, 11))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,11 +131,51 @@ private InfDB idb;
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(jButton1))
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 214, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(omrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nuvarandeAgentID)
+                            .addComponent(uppdateraAgent))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(visaUppgifter))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel6))
+                                        .addGap(26, 26, 26)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(agentid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(telefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(epost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel9)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(11, 11, 11))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(96, 96, 96)
@@ -167,36 +195,45 @@ private InfDB idb;
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(agentid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(visaUppgifter)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nuvarandeAgentID))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(epost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton1))
-                .addGap(45, 45, 45))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(omrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(45, 45, 45))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(uppdateraAgent)
+                        .addGap(37, 37, 37))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(109, 109, 109)
@@ -207,9 +244,67 @@ private InfDB idb;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAgentActionPerformed
+    private void agentidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboAgentActionPerformed
+    }//GEN-LAST:event_agentidActionPerformed
+
+    private void namnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namnActionPerformed
+
+    private void visaUppgifterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaUppgifterActionPerformed
+        nuvarandeAgentID.setText("");
+        agentid.setText("");
+        namn.setText("");
+        telefon.setText("");
+        admin.setText("");
+        epost.setText("");
+        losenord.setText("");
+        omrade.setText("");
+        ArrayList<HashMap<String, String>> soktaAgenter;
+
+        try {
+            String valdAgent = comboAgent.getSelectedItem().toString();
+            String sqlFraga = "SELECT * FROM agent where agent.namn = '" + valdAgent + "'";
+            soktaAgenter = idb.fetchRows(sqlFraga);
+
+            for (HashMap<String, String> agent : soktaAgenter) {
+                nuvarandeAgentID.setText(agent.get("Agent_ID"));
+
+                agentid.setText(agent.get("Agent_ID"));
+                namn.setText(agent.get("Namn"));
+                telefon.setText(agent.get("Telefon"));
+                admin.setText(agent.get("Administrator"));
+                epost.setText(agent.get("Epost"));
+                losenord.setText(agent.get("Losenord"));
+                omrade.setText(agent.get("Omrade"));
+
+            }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
+    }//GEN-LAST:event_visaUppgifterActionPerformed
+
+    private void uppdateraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraAgentActionPerformed
+        try {
+        String agentID = nuvarandeAgentID.getText();
+        String nyttAgentID = agentid.getText();
+        String nyttNamn = namn.getText();
+        String nyTelefon = telefon.getText();
+        String nyAdmin = admin.getText();
+        String nyEpost = epost.getText();
+        String nyttLosenord = losenord.getText();
+        String nyttOmrade = omrade.getText();
+        
+        String sqlFraga = "UPDATE agent SET Agent_ID = '" + nyttAgentID + "', Namn = '" + nyttNamn + "', Telefon = '" + nyTelefon + "', Administrator = '" + nyAdmin + "', Epost = '" + nyEpost + "', Losenord = '" + nyttLosenord + "', Omrade = '" + nyttOmrade + "' WHERE Agent_ID = " + agentID;
+        idb.update(sqlFraga);
+        
+        JOptionPane.showMessageDialog(null, "Agenten har uppdaterats.");
+    } catch (InfException e) {
+        System.out.println("fel" + e.getMessage());
+    }
+
+    }//GEN-LAST:event_uppdateraAgentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,8 +333,10 @@ private InfDB idb;
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField admin;
+    private javax.swing.JTextField agentid;
     private javax.swing.JComboBox<String> comboAgent;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField epost;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -249,13 +346,13 @@ private InfDB idb;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField losenord;
+    private javax.swing.JTextField namn;
+    private javax.swing.JLabel nuvarandeAgentID;
+    private javax.swing.JTextField omrade;
+    private javax.swing.JTextField telefon;
+    private javax.swing.JButton uppdateraAgent;
+    private javax.swing.JButton visaUppgifter;
     // End of variables declaration//GEN-END:variables
 }
