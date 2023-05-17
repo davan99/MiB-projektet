@@ -4,7 +4,10 @@
  */
 package mib.projektet;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -34,23 +37,32 @@ public class Utrustning extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        laggTillUtrustning = new javax.swing.JButton();
-        visaUtrustning = new javax.swing.JButton();
+        btnLaggTillUtrustning = new javax.swing.JButton();
+        btnVisaUtrustning = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         textRuta = new javax.swing.JTextArea();
+        lblSkrivInUtrustning = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtAngeDatum = new javax.swing.JTextField();
+        txtAngeUtrustningId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Kaiti SC", 1, 24)); // NOI18N
         jLabel1.setText("Utrustning");
 
-        laggTillUtrustning.setText("Lägg till utrustning");
-
-        visaUtrustning.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        visaUtrustning.setText("Visa Utrustning");
-        visaUtrustning.addActionListener(new java.awt.event.ActionListener() {
+        btnLaggTillUtrustning.setText("Lägg till ");
+        btnLaggTillUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                visaUtrustningActionPerformed(evt);
+                btnLaggTillUtrustningActionPerformed(evt);
+            }
+        });
+
+        btnVisaUtrustning.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        btnVisaUtrustning.setText("Visa befintlig utrustning");
+        btnVisaUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaUtrustningActionPerformed(evt);
             }
         });
 
@@ -58,46 +70,78 @@ public class Utrustning extends javax.swing.JFrame {
         textRuta.setRows(5);
         jScrollPane1.setViewportView(textRuta);
 
+        lblSkrivInUtrustning.setText("Välj utrustning:");
+
+        jLabel2.setText("Datum för utkvittering:");
+
+        txtAngeDatum.setText("yyyy-MM-dd");
+        txtAngeDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAngeDatumActionPerformed(evt);
+            }
+        });
+
+        txtAngeUtrustningId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAngeUtrustningIdActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSkrivInUtrustning, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAngeDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(laggTillUtrustning))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(visaUtrustning))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                        .addComponent(txtAngeUtrustningId, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLaggTillUtrustning)))
+                .addGap(37, 37, 37))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVisaUtrustning)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(laggTillUtrustning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(visaUtrustning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAngeDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSkrivInUtrustning)
+                    .addComponent(btnLaggTillUtrustning)
+                    .addComponent(txtAngeUtrustningId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addComponent(btnVisaUtrustning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void visaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaUtrustningActionPerformed
+    private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
         textRuta.setText("");
         ArrayList<String> allUtrustning;
+        
         try {
            
             String sqlFraga = "select Benamning from Utrustning join Innehar_Utrustning IU on Utrustning.Utrustnings_ID = IU.Utrustnings_ID where Agent_ID ='" +agentID + "'";
@@ -110,18 +154,79 @@ public class Utrustning extends javax.swing.JFrame {
             System.out.println("fel" + e.getMessage());
 
         }
-    }//GEN-LAST:event_visaUtrustningActionPerformed
+    }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnLaggTillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggTillUtrustningActionPerformed
+   
+        String valdUtrustning = txtAngeUtrustningId.getText();
+        String datum = txtAngeDatum.getText();
+    
+        try {
+            
+            SimpleDateFormat datumFormat = new SimpleDateFormat("yyyy-MM-dd");
+            datumFormat.parse(datum);
+            datumFormat.setLenient(false);
+            
+           String sqlFragaFinnsUtrustning = "SELECT * FROM utrustning WHERE utrustnings_id = '" + valdUtrustning + "'";
+            if (idb.fetchSingle(sqlFragaFinnsUtrustning) == null) {
+               JOptionPane.showMessageDialog(this, "Ange ett tal mellan 1-4.");
+                return;
+            }
+
+            
+            String sqlFraga = "INSERT INTO innehar_utrustning (Utrustnings_ID, Agent_ID, Utkvitteringsdatum) " +
+                              "VALUES (" + valdUtrustning + ", '" +agentID + "', '" + datum + "')";
+             idb.insert(sqlFraga);
+            JOptionPane.showMessageDialog(this, "Utrustningen har lagts till.");
+
+        } catch (InfException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(this, "Ange datum i rätt format, yyyy-MM-dd!");
+
+        }
+   
+
+    }//GEN-LAST:event_btnLaggTillUtrustningActionPerformed
+
+    private void txtAngeDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeDatumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAngeDatumActionPerformed
+
+    private void txtAngeUtrustningIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeUtrustningIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAngeUtrustningIdActionPerformed
+
+//    private void fyllCombo() {
+//        String sqlFraga = "SELECT Benamning FROM utrustning";
+//        ArrayList<String> allUtrustning;
+//
+//        try {
+//            allUtrustning = idb.fetchColumn(sqlFraga);
+//
+//            for (String utrustning : allUtrustning) {
+//                comboAllUtrustning.addItem(utrustning);
+//            }
+//        } 
+//        catch (InfException e) {
+//            System.out.println("fel" + e.getMessage());
+//        }
+//
+//    /**
+//     * @param args the command line arguments
+//     */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLaggTillUtrustning;
+    private javax.swing.JButton btnVisaUtrustning;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton laggTillUtrustning;
+    private javax.swing.JLabel lblSkrivInUtrustning;
     private javax.swing.JTextArea textRuta;
-    private javax.swing.JButton visaUtrustning;
+    private javax.swing.JTextField txtAngeDatum;
+    private javax.swing.JTextField txtAngeUtrustningId;
     // End of variables declaration//GEN-END:variables
 }
