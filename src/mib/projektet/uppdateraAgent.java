@@ -77,6 +77,12 @@ private InfDB idb;
 
         jLabel9.setText("Välj Agent");
 
+        comboAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboAgentActionPerformed(evt);
+            }
+        });
+
         agentid.setColumns(8);
         agentid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,6 +311,10 @@ private InfDB idb;
     }
 
     }//GEN-LAST:event_uppdateraAgentActionPerformed
+
+    private void comboAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAgentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboAgentActionPerformed
 
     /**
      * @param args the command line arguments
