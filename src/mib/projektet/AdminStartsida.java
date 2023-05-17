@@ -33,7 +33,7 @@ private final String agentID;
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        informationAdmin = new javax.swing.JButton();
         Agentreg = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,7 +56,12 @@ private final String agentID;
 
         jButton3.setText("Ändra information ");
 
-        jButton4.setText("Information");
+        informationAdmin.setText("Information");
+        informationAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                informationAdminActionPerformed(evt);
+            }
+        });
 
         Agentreg.setText("Registera Agent");
         Agentreg.addActionListener(new java.awt.event.ActionListener() {
@@ -87,8 +92,9 @@ private final String agentID;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jButton4)))))
+                                .addGap(6, 6, 6)
+                                .addComponent(informationAdmin)))
+                        .addGap(1, 1, 1)))
                 .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
@@ -100,11 +106,11 @@ private final String agentID;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(informationAdmin))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Agentreg)
                 .addContainerGap(148, Short.MAX_VALUE))
         );
@@ -125,14 +131,18 @@ private final String agentID;
      new hanteraAgenter(idb).setVisible(true);
     }//GEN-LAST:event_AgentregActionPerformed
 
+    private void informationAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informationAdminActionPerformed
+       new informationAdmin(idb).setVisible(true);
+    }//GEN-LAST:event_informationAdminActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agentreg;
+    private javax.swing.JButton informationAdmin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
