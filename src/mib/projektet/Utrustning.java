@@ -5,6 +5,7 @@
 package mib.projektet;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -136,7 +137,48 @@ public class Utrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
     private void btnLaggTillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggTillUtrustningActionPerformed
-        // TODO add your handling code here:
+//  
+        String utrustningsId = txtAngeUtrustning.getText();
+        
+    try {
+        String sqlFragaFinnsUtrustning = "SELECT * FROM utrustning WHERE benämning = '" + utrustningsId + "'";
+        
+        if (idb.fetchSingle(sqlFragaFinnsUtrustning) != null){
+            JOptionPane.showMessageDialog(this, "Utrustningen har lagts till i din lista.");
+        } else {
+             JOptionPane.showMessageDialog(this, "Kan inte hitta utrustningstyp. Kontrollera stavningen.");
+        }
+        String sqlFraga = "INSERT INTO innehar_utrustning (this.agentID) VALUES ('" + utrustningsId + "')";
+        idb.insert(sqlFraga);
+        
+    } catch (InfException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
+    }
+//        String utrustningsNamn = txtAngeUtrustning.getText();
+//
+//        try {
+//
+//            String sqlFragaFinnsUtrustning = "SELECT * FROM utrustning WHERE benämning = " + utrustningsNamn;
+//            if (idb.fetchSingle(sqlFragaFinnsUtrustning) equals.utrustningsNamn) {
+//                idb.insert(sqlFraga);
+//                JOptionPane.showMessageDialog(this, "Alien har lagts till i databasen.");
+//            }
+//            
+//                ); {
+////                JOptionPane.showMessageDialog(this, "Alien-id finns redan i databasen.");
+//                
+//        String sqlFraga = "INSERT INTO innehar_utrustning (Benamning) "
+//                        + "VALUES ('" + utrustningsNamn + "')";
+//
+//                
+//
+//            }catch (InfException e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
+//       
+//       
+//       } 
     }//GEN-LAST:event_btnLaggTillUtrustningActionPerformed
 
     private void txtAngeUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngeUtrustningActionPerformed
