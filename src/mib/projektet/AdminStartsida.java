@@ -54,7 +54,12 @@ private final String agentID;
             }
         });
 
-        jButton3.setText("Ändra information ");
+        jButton3.setText("Uppdatera Agent");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         informationAdmin.setText("Information");
         informationAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +93,7 @@ private final String agentID;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
                             .addComponent(jButton3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2)
                             .addGroup(layout.createSequentialGroup()
@@ -134,6 +139,10 @@ private final String agentID;
     private void informationAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informationAdminActionPerformed
        new informationAdmin(idb).setVisible(true);
     }//GEN-LAST:event_informationAdminActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new uppdateraAgent(idb).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
    
 
