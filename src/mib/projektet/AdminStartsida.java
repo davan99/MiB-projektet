@@ -35,6 +35,8 @@ private final String agentID;
         jButton3 = new javax.swing.JButton();
         informationAdmin = new javax.swing.JButton();
         Agentreg = new javax.swing.JButton();
+        uppdateraAlien = new javax.swing.JButton();
+        omradesKontorChef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,32 +77,52 @@ private final String agentID;
             }
         });
 
+        uppdateraAlien.setText("Uppdatera Alien");
+        uppdateraAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uppdateraAlienActionPerformed(evt);
+            }
+        });
+
+        omradesKontorChef.setText("Ändra Områdeschef & kontrorchef");
+        omradesKontorChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omradesKontorChefActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Agentreg))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
                             .addComponent(jButton3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(informationAdmin)))
-                        .addGap(1, 1, 1)))
+                        .addGap(1, 1, 1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(uppdateraAlien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Agentreg)))
                 .addGap(76, 76, 76))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(omradesKontorChef)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,8 +138,12 @@ private final String agentID;
                     .addComponent(jButton3)
                     .addComponent(informationAdmin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Agentreg)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Agentreg)
+                    .addComponent(uppdateraAlien))
+                .addGap(28, 28, 28)
+                .addComponent(omradesKontorChef)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,6 +170,14 @@ private final String agentID;
         new uppdateraAgent(idb).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void uppdateraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraAlienActionPerformed
+       new uppdateraAlien(idb).setVisible(true);
+    }//GEN-LAST:event_uppdateraAlienActionPerformed
+
+    private void omradesKontorChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradesKontorChefActionPerformed
+        new andraOmradesKontorsChef(idb).setVisible(true);
+    }//GEN-LAST:event_omradesKontorChefActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -153,5 +187,7 @@ private final String agentID;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton omradesKontorChef;
+    private javax.swing.JButton uppdateraAlien;
     // End of variables declaration//GEN-END:variables
 }
