@@ -30,66 +30,77 @@
                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="ansvarigAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="uppdateraAlien" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="losenord" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="214" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="omrade" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="nuvarandeAgentID" min="-2" max="-2" attributes="0"/>
+                          <Component id="uppdateraAgent" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="visaUppgifter" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="losenord" min="-2" max="-2" attributes="0"/>
-                          <Component id="regdatum" min="-2" max="-2" attributes="0"/>
-                          <Component id="alienid" min="-2" max="-2" attributes="0"/>
-                          <Component id="namn" min="-2" max="-2" attributes="0"/>
-                          <Component id="telefon" min="-2" max="-2" attributes="0"/>
-                          <Component id="plats" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="visaUppgifter" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="comboAlien" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="namn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="agentid" min="-2" max="-2" attributes="0"/>
+                                          <Component id="admin" min="-2" max="-2" attributes="0"/>
+                                          <Component id="telefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="epost" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace min="0" pref="404" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="nuvarandeAlienID" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="comboAgent" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                   <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="571" max="32767" attributes="0"/>
+                  <EmptySpace pref="226" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -97,62 +108,68 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="alienid" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="agentid" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="regdatum" min="-2" max="-2" attributes="0"/>
+                          <Component id="namn" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="comboAlien" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboAgent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Component id="visaUppgifter" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="losenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nuvarandeAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="telefon" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="namn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nuvarandeAgentID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="telefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="epost" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="plats" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="losenord" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ansvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="omrade" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="uppdateraAlien" min="-2" max="-2" attributes="0"/>
+                      <Component id="uppdateraAgent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -161,7 +178,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                   <Component id="jTextField3" min="-2" pref="0" max="-2" attributes="0"/>
-                  <EmptySpace pref="246" max="32767" attributes="0"/>
+                  <EmptySpace pref="235" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -173,73 +190,76 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Helvetica Neue" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Uppdatera Alien"/>
+        <Property name="text" type="java.lang.String" value="Uppdatera Agent"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Alien-ID"/>
+        <Property name="text" type="java.lang.String" value="Agent-ID"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reg-Datum"/>
+        <Property name="text" type="java.lang.String" value="Namn"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
+        <Property name="text" type="java.lang.String" value="Telefon"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Namn"/>
+        <Property name="text" type="java.lang.String" value="Admin"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Telefon"/>
+        <Property name="text" type="java.lang.String" value="Epost"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Plats"/>
+        <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ansvarig Agent"/>
+        <Property name="text" type="java.lang.String" value="Omr&#xe5;de"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lj Alien"/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lj Agent"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboAlien">
+    <Component class="javax.swing.JComboBox" name="comboAgent">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboAgentActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="alienid">
+    <Component class="javax.swing.JTextField" name="agentid">
       <Properties>
         <Property name="columns" type="int" value="8"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alienidActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agentidActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="regdatum">
+    <Component class="javax.swing.JTextField" name="namn">
       <Properties>
         <Property name="columns" type="int" value="8"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regdatumActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField3">
@@ -247,7 +267,7 @@
         <Property name="text" type="java.lang.String" value="jTextField2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="namn">
+    <Component class="javax.swing.JTextField" name="admin">
       <Properties>
         <Property name="columns" type="int" value="8"/>
       </Properties>
@@ -257,7 +277,7 @@
         <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="plats">
+    <Component class="javax.swing.JTextField" name="epost">
       <Properties>
         <Property name="columns" type="int" value="8"/>
       </Properties>
@@ -267,7 +287,7 @@
         <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="ansvarigAgent">
+    <Component class="javax.swing.JTextField" name="omrade">
       <Properties>
         <Property name="columns" type="int" value="8"/>
       </Properties>
@@ -280,17 +300,17 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visaUppgifterActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="uppdateraAlien">
+    <Component class="javax.swing.JButton" name="uppdateraAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Uppdatera Alien"/>
+        <Property name="text" type="java.lang.String" value="Uppdatera Agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="uppdateraAlienActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="uppdateraAgentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="nuvarandeAlienID">
+    <Component class="javax.swing.JLabel" name="nuvarandeAgentID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nuvarande ID"/>
+        <Property name="text" type="java.lang.String" value="jLabel10"/>
       </Properties>
     </Component>
   </SubComponents>
