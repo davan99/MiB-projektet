@@ -98,6 +98,11 @@ private InfDB idb;
         });
 
         jTextField3.setText("jTextField2");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
 
         admin.setColumns(8);
 
@@ -130,12 +135,10 @@ private InfDB idb;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel9))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addComponent(jLabel1)
                         .addGap(222, 222, 222)))
                 .addGap(17, 17, 17))
@@ -300,6 +303,10 @@ private InfDB idb;
     private void comboAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAgentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboAgentActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**
      * @param args the command line arguments
