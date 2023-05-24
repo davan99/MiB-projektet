@@ -136,6 +136,8 @@ public class AgentInloggning extends javax.swing.JFrame {
         String epost = angeEpost.getText();
         char[] charLosenord = angeLosenord.getPassword();
         String losenord = new String(charLosenord);
+        
+        if ( Validering.kollaTomRuta(angeEpost) && ( Validering.kollaTomRuta2(angeLosenord)))
 
         try {
             String sqlFraga = "SELECT losenord FROM agent WHERE Epost = '" + epost + "'";
