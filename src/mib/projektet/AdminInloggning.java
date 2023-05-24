@@ -37,6 +37,7 @@ public class AdminInloggning extends javax.swing.JFrame {
         angeLosenord = new javax.swing.JPasswordField();
         angeEpost = new javax.swing.JTextField();
         btnLoggaIn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,12 +64,20 @@ public class AdminInloggning extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Tillbaka");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(115, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(lblAdminInlogg, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(110, 110, 110))
             .addGroup(layout.createSequentialGroup()
@@ -86,8 +95,11 @@ public class AdminInloggning extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(lblAdminInlogg, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lblAdminInlogg, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEpost)
@@ -104,6 +116,7 @@ public class AdminInloggning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
         // TODO add your handling code here:
 
@@ -111,6 +124,8 @@ public class AdminInloggning extends javax.swing.JFrame {
         char[] charLosenord = angeLosenord.getPassword();
         String losenord = new String(charLosenord);
 
+        if ( Validering.kollaTomRuta(angeEpost) && ( Validering.kollaTomRuta2(angeLosenord)))
+        
         try {
             String sqlFraga = "SELECT losenord FROM agent WHERE Epost = '" + epost + "'";
             String getAgentID = "SELECT Agent_ID FROM agent WHERE Epost = '" + epost + "'";
@@ -123,7 +138,7 @@ public class AdminInloggning extends javax.swing.JFrame {
                 dispose();
                 new AdminStartsida(idb, agentID).setVisible(true);
             } else if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("N")) {
-                JOptionPane.showMessageDialog(null, "Du är inte en administratör.");
+                JOptionPane.showMessageDialog(null, "Du är inte en administratör, byt till agent inlogg.");
             } else {
                 JOptionPane.showMessageDialog(null, "E-post eller lösenord är felaktigt.");
             }
@@ -136,6 +151,10 @@ public class AdminInloggning extends javax.swing.JFrame {
     private void angeEpostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angeEpostActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_angeEpostActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 //private boolean validateLogin(String epost, String losenord) {
 //    boolean resultat = false;
@@ -159,6 +178,7 @@ public class AdminInloggning extends javax.swing.JFrame {
     private javax.swing.JTextField angeEpost;
     private javax.swing.JPasswordField angeLosenord;
     private javax.swing.JButton btnLoggaIn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAdminInlogg;
     private javax.swing.JLabel txtEpost;
     private javax.swing.JLabel txtLösenord;
