@@ -46,9 +46,15 @@ public class AdminInloggning extends javax.swing.JFrame {
 
         txtLösenord.setText("Lösenord");
 
-        angeLosenord.setText("jPasswordField1");
+        angeLosenord.setText("planka");
 
         angeEpost.setColumns(5);
+        angeEpost.setText("ao@mib.net");
+        angeEpost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                angeEpostActionPerformed(evt);
+            }
+        });
 
         btnLoggaIn.setText("Logga in");
         btnLoggaIn.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +135,10 @@ public class AdminInloggning extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnLoggaInActionPerformed
+
+    private void angeEpostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angeEpostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_angeEpostActionPerformed
 
 //private boolean validateLogin(String epost, String losenord) {
 //    boolean resultat = false;
