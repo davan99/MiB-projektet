@@ -4,6 +4,7 @@
  */
 package mib.projektet;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
@@ -46,7 +47,6 @@ private InfDB idb;
         comboAgent = new javax.swing.JComboBox<>();
         agentid = new javax.swing.JTextField();
         namn = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         admin = new javax.swing.JTextField();
         telefon = new javax.swing.JTextField();
         epost = new javax.swing.JTextField();
@@ -55,6 +55,7 @@ private InfDB idb;
         visaUppgifter = new javax.swing.JButton();
         uppdateraAgent = new javax.swing.JButton();
         nuvarandeAgentID = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,13 +98,6 @@ private InfDB idb;
             }
         });
 
-        jTextField3.setText("jTextField2");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-
         admin.setColumns(8);
 
         telefon.setColumns(8);
@@ -130,17 +124,24 @@ private InfDB idb;
 
         nuvarandeAgentID.setText("jLabel10");
 
+        jButton1.setText("Tillbaka");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(222, 222, 222)))
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
+                .addGap(55, 55, 55)
+                .addComponent(jLabel9)
                 .addGap(17, 17, 17))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
@@ -183,9 +184,7 @@ private InfDB idb;
                         .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(91, 91, 91))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(visaUppgifter)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(visaUppgifter)
                         .addGap(78, 78, 78))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(uppdateraAgent)
@@ -194,12 +193,17 @@ private InfDB idb;
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel1)
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel1)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agentid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,7 +217,6 @@ private InfDB idb;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nuvarandeAgentID))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -293,7 +296,39 @@ private InfDB idb;
         String sqlFraga = "UPDATE agent SET Agent_ID = '" + nyttAgentID + "', Namn = '" + nyttNamn + "', Telefon = '" + nyTelefon + "', Administrator = '" + nyAdmin + "', Epost = '" + nyEpost + "', Losenord = '" + nyttLosenord + "', Omrade = '" + nyttOmrade + "' WHERE Agent_ID = " + agentID;
         idb.update(sqlFraga);
         
+       
+            
+            String sqlFragaFinnsEpost = "SELECT * FROM agent WHERE epost = '" + epost + "'";
+            if (idb.fetchSingle(sqlFragaFinnsEpost) != null) {
+                JOptionPane.showMessageDialog(this, "E-postadressen finns redan i databasen.");
+                return;
+            }
+
+            String sqlFragaFinnsId = "SELECT * FROM agent WHERE Agent_id = " + nyttAgentID;
+            if (idb.fetchSingle(sqlFragaFinnsId) != null) {
+                JOptionPane.showMessageDialog(this, "Agent-id finns redan i databasen.");
+                return;
+            }
+         // Validering av telefonnummer
+   if (!Validering.valideraTelefonnummer(nyTelefon)) {
+        JOptionPane.showMessageDialog(this, "Telefonnummer kan endast innehålla siffror.");
+        return;
+    }
+        
+        if (!Validering.valideraOmradeID(nyttOmrade)) {
+            JOptionPane.showMessageDialog(this, "Ogiltigt omradeID. Endast 1 = Svealand, 2 = Götaland eller 4 = Norrland är tillåtna.");
+            return;
+        }
+        if (!Validering.kollaAdminStatus(nyAdmin)) {
+            JOptionPane.showMessageDialog(this, "Ogiltig adminstatus. Vänligen ange antingen 'J' för JA eller 'N' för NEJ.");
+            return;
+        }
+        
+        
+        
+        
         JOptionPane.showMessageDialog(null, "Agenten har uppdaterats.");
+        
     } catch (InfException e) {
         System.out.println("fel" + e.getMessage());
     }
@@ -304,9 +339,9 @@ private InfDB idb;
         // TODO add your handling code here:
     }//GEN-LAST:event_comboAgentActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,6 +374,7 @@ private InfDB idb;
     private javax.swing.JTextField agentid;
     private javax.swing.JComboBox<String> comboAgent;
     private javax.swing.JTextField epost;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -348,7 +384,6 @@ private InfDB idb;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField losenord;
     private javax.swing.JTextField namn;
     private javax.swing.JLabel nuvarandeAgentID;

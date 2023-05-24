@@ -104,6 +104,7 @@ public class AdminInloggning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
         // TODO add your handling code here:
 
@@ -111,6 +112,8 @@ public class AdminInloggning extends javax.swing.JFrame {
         char[] charLosenord = angeLosenord.getPassword();
         String losenord = new String(charLosenord);
 
+        if ( Validering.kollaTomRuta(angeEpost) && ( Validering.kollaTomRuta2(angeLosenord)))
+        
         try {
             String sqlFraga = "SELECT losenord FROM agent WHERE Epost = '" + epost + "'";
             String getAgentID = "SELECT Agent_ID FROM agent WHERE Epost = '" + epost + "'";
@@ -123,7 +126,7 @@ public class AdminInloggning extends javax.swing.JFrame {
                 dispose();
                 new AdminStartsida(idb, agentID).setVisible(true);
             } else if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord) && sqlSvarAdmin.equals("N")) {
-                JOptionPane.showMessageDialog(null, "Du är inte en administratör.");
+                JOptionPane.showMessageDialog(null, "Du är inte en administratör, byt till agent inlogg.");
             } else {
                 JOptionPane.showMessageDialog(null, "E-post eller lösenord är felaktigt.");
             }
