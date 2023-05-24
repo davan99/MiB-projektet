@@ -41,6 +41,7 @@ public class AgentInloggning extends javax.swing.JFrame {
         lblEpost = new javax.swing.JLabel();
         angeEpost = new javax.swing.JTextField();
         lblFelmeddelande = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +78,13 @@ public class AgentInloggning extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Tillbaka");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,7 +94,9 @@ public class AgentInloggning extends javax.swing.JFrame {
                 .addComponent(btnLoggaIn)
                 .addGap(42, 42, 42))
             .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(62, 62, 62)
                 .addComponent(txtValkommen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -108,8 +118,13 @@ public class AgentInloggning extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(txtValkommen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(txtValkommen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,6 +151,8 @@ public class AgentInloggning extends javax.swing.JFrame {
         String epost = angeEpost.getText();
         char[] charLosenord = angeLosenord.getPassword();
         String losenord = new String(charLosenord);
+        
+        if ( Validering.kollaTomRuta(angeEpost) && ( Validering.kollaTomRuta2(angeLosenord)))
 
         try {
             String sqlFraga = "SELECT losenord FROM agent WHERE Epost = '" + epost + "'";
@@ -170,6 +187,10 @@ public class AgentInloggning extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_angeEpostActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
    
     
 
@@ -177,6 +198,7 @@ public class AgentInloggning extends javax.swing.JFrame {
     private javax.swing.JTextField angeEpost;
     private javax.swing.JPasswordField angeLosenord;
     private javax.swing.JButton btnLoggaIn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblFelmeddelande;
     private javax.swing.JLabel lblLosenord;
