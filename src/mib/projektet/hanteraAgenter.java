@@ -47,7 +47,6 @@ private InfDB idb;
         txtAngeEpost = new javax.swing.JTextField();
         txtAngeTelefon = new javax.swing.JTextField();
         btnLaggTill = new javax.swing.JButton();
-        btnAvbryt = new javax.swing.JButton();
         pwAngeLosenord = new javax.swing.JPasswordField();
         anstDatum = new javax.swing.JLabel();
         textAnst = new javax.swing.JTextField();
@@ -80,13 +79,6 @@ private InfDB idb;
         btnLaggTill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLaggTillActionPerformed(evt);
-            }
-        });
-
-        btnAvbryt.setText("Avbryt");
-        btnAvbryt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvbrytActionPerformed(evt);
             }
         });
 
@@ -128,8 +120,6 @@ private InfDB idb;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAvbryt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLaggTill)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -203,9 +193,7 @@ private InfDB idb;
                     .addComponent(AgentID)
                     .addComponent(agentensid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLaggTill)
-                    .addComponent(btnAvbryt))
+                .addComponent(btnLaggTill)
                 .addGap(16, 16, 16))
         );
 
@@ -284,10 +272,6 @@ private InfDB idb;
         // TODO add your handling code here:
     }//GEN-LAST:event_adminActionPerformed
 
-    private void btnAvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvbrytActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAvbrytActionPerformed
-
     private void omradeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradeIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_omradeIDActionPerformed
@@ -307,7 +291,6 @@ private InfDB idb;
     private javax.swing.JTextField admin;
     private javax.swing.JTextField agentensid;
     private javax.swing.JLabel anstDatum;
-    private javax.swing.JButton btnAvbryt;
     private javax.swing.JButton btnLaggTill;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;

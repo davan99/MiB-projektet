@@ -32,8 +32,6 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnAvbryt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnLaggTill" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -130,10 +128,7 @@
                   <Component id="txtTilldelaId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnLaggTill" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btnLaggTill" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -190,14 +185,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaggTillActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAvbryt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Avbryt"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAvbrytActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pwAngeLosenord">

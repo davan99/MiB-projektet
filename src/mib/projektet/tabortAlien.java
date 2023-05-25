@@ -82,6 +82,11 @@ public class tabortAlien extends javax.swing.JFrame {
         });
 
         btnAvbryt.setText("Avbryt");
+        btnAvbryt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvbrytActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,6 +183,10 @@ try{
         }
 
     }//GEN-LAST:event_btnVisaIdNamnActionPerformed
+
+    private void btnAvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvbrytActionPerformed
+         this.dispose();
+    }//GEN-LAST:event_btnAvbrytActionPerformed
 
 
   private void fyllCombo2() {

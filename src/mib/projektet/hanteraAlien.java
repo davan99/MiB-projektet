@@ -47,7 +47,6 @@ private InfDB idb;
         txtAngeEpost = new javax.swing.JTextField();
         txtAngeTelefon = new javax.swing.JTextField();
         btnLaggTill = new javax.swing.JButton();
-        btnAvbryt = new javax.swing.JButton();
         pwAngeLosenord = new javax.swing.JPasswordField();
         lblRegDatum = new javax.swing.JLabel();
         txtRegDatum = new javax.swing.JTextField();
@@ -83,13 +82,6 @@ private InfDB idb;
             }
         });
 
-        btnAvbryt.setText("Avbryt");
-        btnAvbryt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvbrytActionPerformed(evt);
-            }
-        });
-
         pwAngeLosenord.setText("lösenord");
 
         lblRegDatum.setText("Reg.datum:");
@@ -122,8 +114,6 @@ private InfDB idb;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAvbryt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLaggTill)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -200,9 +190,7 @@ private InfDB idb;
                     .addComponent(jLabel1)
                     .addComponent(txtTilldelaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLaggTill)
-                    .addComponent(btnAvbryt))
+                .addComponent(btnLaggTill)
                 .addGap(16, 16, 16))
         );
 
@@ -277,10 +265,6 @@ private InfDB idb;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAngeAgentActionPerformed
 
-    private void btnAvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvbrytActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAvbrytActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -291,7 +275,6 @@ private InfDB idb;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAvbryt;
     private javax.swing.JButton btnLaggTill;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
