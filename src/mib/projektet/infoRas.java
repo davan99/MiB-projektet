@@ -42,10 +42,10 @@ private InfDB idb;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Kohinoor Bangla", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Kohinoor Bangla", 1, 24)); // NOI18N
         jLabel1.setText("Lista alla Aliens av viss ras");
 
-        jLabel2.setText("Väl ras");
+        jLabel2.setText("Väl ras:");
 
         textRuta.setColumns(20);
         textRuta.setRows(5);
@@ -85,32 +85,32 @@ private InfDB idb;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(boglodite)
-                        .addGap(18, 18, 18)
-                        .addComponent(squid)
-                        .addGap(18, 18, 18)
-                        .addComponent(worm))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
+                        .addGap(37, 37, 37)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(boglodite)
+                                .addGap(18, 18, 18)
+                                .addComponent(squid)
+                                .addGap(18, 18, 18)
+                                .addComponent(worm))
+                            .addComponent(jScrollPane1))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
-                .addGap(13, 13, 13)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(boglodite)
