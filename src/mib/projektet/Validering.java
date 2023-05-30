@@ -73,12 +73,10 @@ public class Validering {
     }
  
  public static boolean kollaAdminStatus(String adminStatus) {
-        if (adminStatus.equals("J") || adminStatus.equals("N")) {
-            return true;
-        } else {
-            return false;
-        }
-    
+    if (adminStatus.equalsIgnoreCase("J") || adminStatus.equalsIgnoreCase("N")) {
+        return true;
+    }
+    return false;
 }
  public static boolean agentFinnsIDatabas(InfDB idb, String agent) {
     try {

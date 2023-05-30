@@ -17,13 +17,15 @@ import oru.inf.InfException;
  */
 public class uppdateraAgent extends javax.swing.JFrame {
 private InfDB idb;
+private final String agentID;
     /**
      * Creates new form uppdateraAgent
      */
-    public uppdateraAgent(InfDB idb) {
+    public uppdateraAgent(InfDB idb, String agentID) {
         initComponents();
         this.idb = idb;
         fyllCombo();
+        this.agentID = agentID;
     }
 
     /**
@@ -36,41 +38,35 @@ private InfDB idb;
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         comboAgent = new javax.swing.JComboBox<>();
-        agentid = new javax.swing.JTextField();
         namn = new javax.swing.JTextField();
         admin = new javax.swing.JTextField();
         telefon = new javax.swing.JTextField();
-        epost = new javax.swing.JTextField();
         losenord = new javax.swing.JTextField();
         omrade = new javax.swing.JTextField();
         visaUppgifter = new javax.swing.JButton();
         uppdateraAgent = new javax.swing.JButton();
         nuvarandeAgentID = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel1.setText("Uppdatera Agent");
 
-        jLabel2.setText("Agent-ID");
-
         jLabel3.setText("Namn");
 
         jLabel4.setText("Telefon");
 
         jLabel5.setText("Admin");
-
-        jLabel6.setText("Epost");
 
         jLabel7.setText("Lösenord");
 
@@ -81,13 +77,6 @@ private InfDB idb;
         comboAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboAgentActionPerformed(evt);
-            }
-        });
-
-        agentid.setColumns(8);
-        agentid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agentidActionPerformed(evt);
             }
         });
 
@@ -102,9 +91,12 @@ private InfDB idb;
 
         telefon.setColumns(8);
 
-        epost.setColumns(8);
-
         losenord.setColumns(8);
+        losenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                losenordActionPerformed(evt);
+            }
+        });
 
         omrade.setColumns(8);
 
@@ -122,7 +114,7 @@ private InfDB idb;
             }
         });
 
-        nuvarandeAgentID.setText("jLabel10");
+        nuvarandeAgentID.setText("id");
 
         jButton1.setText("Tillbaka");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +122,8 @@ private InfDB idb;
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Agent id");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,17 +138,8 @@ private InfDB idb;
                 .addComponent(jLabel9)
                 .addGap(17, 17, 17))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
-                            .addComponent(agentid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel8)
@@ -169,26 +154,33 @@ private InfDB idb;
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(epost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jLabel7)
                             .addGap(18, 18, 18)
-                            .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(146, 146, 146)
-                .addComponent(nuvarandeAgentID)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(visaUppgifter)
-                        .addGap(78, 78, 78))
+                            .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(uppdateraAgent)
-                        .addContainerGap())))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nuvarandeAgentID)
+                            .addComponent(admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(comboAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(91, 91, 91))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(visaUppgifter)
+                                .addGap(78, 78, 78))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(uppdateraAgent)
+                                .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,45 +197,43 @@ private InfDB idb;
                         .addGap(14, 14, 14)
                         .addComponent(jLabel1)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agentid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(visaUppgifter))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(visaUppgifter)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nuvarandeAgentID)
+                        .addComponent(jLabel2)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel4)
+                    .addComponent(telefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(nuvarandeAgentID))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(epost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(omrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(uppdateraAgent))
-                .addContainerGap(115, Short.MAX_VALUE))
+                    .addComponent(omrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addComponent(uppdateraAgent)
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void agentidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentidActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_agentidActionPerformed
 
     private void namnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namnActionPerformed
         // TODO add your handling code here:
@@ -251,11 +241,11 @@ private InfDB idb;
 
     private void visaUppgifterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaUppgifterActionPerformed
         nuvarandeAgentID.setText("");
-        agentid.setText("");
+       ;
         namn.setText("");
         telefon.setText("");
         admin.setText("");
-        epost.setText("");
+      
         losenord.setText("");
         omrade.setText("");
         ArrayList<HashMap<String, String>> soktaAgenter;
@@ -268,11 +258,11 @@ private InfDB idb;
             for (HashMap<String, String> agent : soktaAgenter) {
                 nuvarandeAgentID.setText(agent.get("Agent_ID"));
 
-                agentid.setText(agent.get("Agent_ID"));
+              
                 namn.setText(agent.get("Namn"));
                 telefon.setText(agent.get("Telefon"));
                 admin.setText(agent.get("Administrator"));
-                epost.setText(agent.get("Epost"));
+               
                 losenord.setText(agent.get("Losenord"));
                 omrade.setText(agent.get("Omrade"));
 
@@ -284,31 +274,31 @@ private InfDB idb;
 
     private void uppdateraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraAgentActionPerformed
         try {
-        String agentID = nuvarandeAgentID.getText();
-        String nyttAgentID = agentid.getText();
+        String agentIDe = nuvarandeAgentID.getText();
+       
         String nyttNamn = namn.getText();
         String nyTelefon = telefon.getText();
         String nyAdmin = admin.getText();
-        String nyEpost = epost.getText();
+    
         String nyttLosenord = losenord.getText();
         String nyttOmrade = omrade.getText();
         
-        String sqlFraga = "UPDATE agent SET Agent_ID = '" + nyttAgentID + "', Namn = '" + nyttNamn + "', Telefon = '" + nyTelefon + "', Administrator = '" + nyAdmin + "', Epost = '" + nyEpost + "', Losenord = '" + nyttLosenord + "', Omrade = '" + nyttOmrade + "' WHERE Agent_ID = " + agentID;
+            String nuvarandeAdminStatus = idb.fetchSingle("SELECT Administrator FROM agent WHERE Agent_ID = " + agentID);
+        if (nuvarandeAdminStatus.equals("J") && !nyAdmin.equals("J") && agentID.equals(agentIDe)) {
+            JOptionPane.showMessageDialog(this, "En agent kan inte ta bort sig själv som admin.");
+            return;
+        }
+        
+        
+        
+        String sqlFraga = "UPDATE agent SET Namn = '" + nyttNamn + "', Telefon = '" + nyTelefon + "', Administrator = '" + nyAdmin + "', Losenord = '" + nyttLosenord + "', Omrade = '" + nyttOmrade + "' WHERE Agent_ID = " + agentID;
         idb.update(sqlFraga);
         
        
             
-            String sqlFragaFinnsEpost = "SELECT * FROM agent WHERE epost = '" + epost + "'";
-            if (idb.fetchSingle(sqlFragaFinnsEpost) != null) {
-                JOptionPane.showMessageDialog(this, "E-postadressen finns redan i databasen.");
-                return;
-            }
+            
 
-            String sqlFragaFinnsId = "SELECT * FROM agent WHERE Agent_id = " + nyttAgentID;
-            if (idb.fetchSingle(sqlFragaFinnsId) != null) {
-                JOptionPane.showMessageDialog(this, "Agent-id finns redan i databasen.");
-                return;
-            }
+           
          // Validering av telefonnummer
    if (!Validering.valideraTelefonnummer(nyTelefon)) {
         JOptionPane.showMessageDialog(this, "Telefonnummer kan endast innehålla siffror.");
@@ -343,6 +333,10 @@ private InfDB idb;
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void losenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_losenordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_losenordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -371,9 +365,7 @@ private InfDB idb;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField admin;
-    private javax.swing.JTextField agentid;
     private javax.swing.JComboBox<String> comboAgent;
-    private javax.swing.JTextField epost;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

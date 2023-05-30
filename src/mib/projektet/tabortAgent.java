@@ -29,6 +29,8 @@ public class tabortAgent extends javax.swing.JFrame {
         this.agentID = agentID; 
 //        fyllCombo();
         fyllCombo2();
+        
+        
     }
 
     /**
@@ -132,6 +134,22 @@ public class tabortAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+        private String hittaSlumpmässigAgent() throws InfException {
+    // Hämta alla agent-ID från databasen
+    String sqlFraga = "SELECT Agent_ID FROM agent";
+    ArrayList<String> allaAgenter = idb.fetchColumn(sqlFraga);
+
+    // Generera en slumpmässig indexposition för att välja en agent
+    int slumpIndex = (int) (Math.random() * allaAgenter.size());
+
+    // Returnera det slumpmässiga agent-ID:et
+    return allaAgenter.get(slumpIndex);
+    }
+    
+    
+    
+    
     private void btnTabortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortAgentActionPerformed
    String valdAgent = comboValjTabortAgent.getSelectedItem().toString();
 
@@ -139,6 +157,29 @@ public class tabortAgent extends javax.swing.JFrame {
 
 if(valdAgent != null && !valdAgent.equals(agentID))
 try{
+    // Hämta en slumpmässig agent från databasen
+            String slumpmässigAgent = hittaSlumpmässigAgent();
+            
+            // Uppdatera aliens som tidigare hade den borttagna agenten som ansvarig agent
+            String sqlFraga = "UPDATE alien SET Ansvarig_Agent = '" + slumpmässigAgent + "' WHERE Ansvarig_Agent = " + valdAgent;
+            idb.update(sqlFraga);
+           
+     // Uppdatera områdeschefer som tidigare hade den borttagna agenten som områdeschef
+            String sqlFragaOmradeschef = "UPDATE omradeschef SET Agent_ID = '" + slumpmässigAgent + "' WHERE Agent_ID = " + valdAgent;
+            idb.update(sqlFragaOmradeschef);
+
+            // Uppdatera kontorschefer som tidigare hade den borttagna agenten som kontorschef
+            String sqlFragaKontorschef = "UPDATE kontorschef SET Agent_ID = '" + slumpmässigAgent + "' WHERE Agent_ID = " + valdAgent;
+            idb.update(sqlFragaKontorschef);
+    
+    // Ta bort eventuella rader i alien som har den valda agenten som ansvarig agent
+            idb.delete("DELETE FROM alien WHERE Ansvarig_Agent = " + valdAgent);
+            
+    
+    // Ta bort eventuella rader i innehar_utrustning för den valda agenten
+            idb.delete("DELETE FROM innehar_utrustning WHERE Agent_ID = " + valdAgent);
+            
+    
      idb.delete("DELETE FROM omradeschef WHERE Agent_ID = "+ valdAgent); 
      idb.delete("DELETE FROM kontorschef WHERE Agent_ID = " + valdAgent); 
      idb.delete("DELETE FROM faltagent WHERE Agent_ID = " + valdAgent) ;
@@ -157,8 +198,13 @@ try{
         JOptionPane.showMessageDialog(this, "Du kan inte ta bort dig själv!");
 }
 
+
     }//GEN-LAST:event_btnTabortAgentActionPerformed
 
+
+    
+    
+    
     private void comboValjTabortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboValjTabortAgentActionPerformed
      
      String valdAgent = comboValjTabortAgent.getSelectedItem().toString();
