@@ -65,9 +65,15 @@
                           <Component id="txtAngeAgent" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtTilldelaId" max="32767" attributes="0"/>
                           <Component id="txtAngeNamn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtRegDatum" alignment="0" pref="169" max="32767" attributes="0"/>
+                          <Component id="txtRegDatum" alignment="0" pref="168" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="comboboxRas" max="32767" attributes="0"/>
+                          <Component id="txtRasegenskaper" max="32767" attributes="0"/>
+                          <Component id="lblRasegenskaper" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" pref="84" max="-2" attributes="0"/>
@@ -91,16 +97,19 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboboxRas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtAngeNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRasegenskaper" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtAngeEpost" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRasegenskaper" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -226,6 +235,33 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboboxRas">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Worm"/>
+            <StringItem index="1" value="Squid"/>
+            <StringItem index="2" value="Boglodite"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboboxRasActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtRasegenskaper">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRasegenskaperActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRasegenskaper">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rasegenskaper:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
