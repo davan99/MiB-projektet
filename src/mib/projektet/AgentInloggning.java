@@ -9,22 +9,25 @@ import javax.swing.JOptionPane;
 //import oru.inf.InfDB;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author danie
  */
 public class AgentInloggning extends javax.swing.JFrame {
+
     private InfDB idb;
     private HashMap<String, String> anvandare;
+
     /**
      * Creates new form Inloggning
      */
     public AgentInloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
-       
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -149,8 +152,8 @@ public class AgentInloggning extends javax.swing.JFrame {
         String epost = angeEpost.getText();
         char[] charLosenord = angeLosenord.getPassword();
         String losenord = new String(charLosenord);
-        
-        if ( Validering.kollaTomRuta(angeEpost) && ( Validering.kollaTomRuta2(angeLosenord)))
+
+        if (Validering.kollaTomRuta(angeEpost) && (Validering.kollaTomRuta2(angeLosenord)))
 
         try {
             String sqlFraga = "SELECT losenord FROM agent WHERE Epost = '" + epost + "'";
@@ -172,8 +175,6 @@ public class AgentInloggning extends javax.swing.JFrame {
             System.out.println("fel" + e.getMessage());
         }
 
-       
-
 
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
@@ -189,8 +190,6 @@ public class AgentInloggning extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-   
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField angeEpost;
@@ -203,5 +202,4 @@ public class AgentInloggning extends javax.swing.JFrame {
     private javax.swing.JTextField txtValkommen;
     // End of variables declaration//GEN-END:variables
 
-    
 }

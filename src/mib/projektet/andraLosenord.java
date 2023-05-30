@@ -16,6 +16,7 @@ public class andraLosenord extends javax.swing.JFrame {
 
     private InfDB idb;
     private final String agentID;
+
     /**
      * Creates new form andraLosenord
      */
@@ -117,27 +118,27 @@ public class andraLosenord extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBytLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLosenordActionPerformed
-                                              
-    String losenord = gamlaLosenord.getText();
-    String nyttLosenord = nyaLosenord.getText();
-    
-    if ( Validering.kollaTomRuta3(gamlaLosenord) && ( Validering.kollaTomRuta4(nyaLosenord)))
+
+        String losenord = gamlaLosenord.getText();
+        String nyttLosenord = nyaLosenord.getText();
+
+        if (Validering.kollaTomRuta3(gamlaLosenord) && (Validering.kollaTomRuta4(nyaLosenord)))
     
     try {
-        String sqlFraga = "SELECT losenord FROM Agent WHERE agent_id = '" + agentID + "'";
-        String valtLosenord = idb.fetchSingle(sqlFraga);
-        
-        if (losenord.equals(valtLosenord)) {
-            String updateQuery = "UPDATE Agent SET losenord = '" + nyttLosenord + "' WHERE agent_id = '" + agentID + "'";
-            idb.update(updateQuery);
-            
-            JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats.");
-        } else {
-            JOptionPane.showMessageDialog(null, "Felaktigt lösenord.");
+            String sqlFraga = "SELECT losenord FROM Agent WHERE agent_id = '" + agentID + "'";
+            String valtLosenord = idb.fetchSingle(sqlFraga);
+
+            if (losenord.equals(valtLosenord)) {
+                String updateQuery = "UPDATE Agent SET losenord = '" + nyttLosenord + "' WHERE agent_id = '" + agentID + "'";
+                idb.update(updateQuery);
+
+                JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Felaktigt lösenord.");
+            }
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
         }
-    } catch (InfException e) {
-       System.out.println("fel" + e.getMessage());
-    }
 
 
     }//GEN-LAST:event_btnBytLosenordActionPerformed
@@ -145,8 +146,6 @@ public class andraLosenord extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

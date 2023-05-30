@@ -38,105 +38,107 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="lblRegistreraNyAlien" min="-2" pref="229" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="lblRegistreraNyAlien" min="-2" pref="293" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblLosenord" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="lblTelefon" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblOmrade" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="lblAnsvarigAgent" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblLosenord" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="lblTelefon" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lblOmrade" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                           <Component id="lblEpost" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="lblNamn" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="lblRegDatum" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="lblAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtAngeOmrade" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtAngeTelefon" alignment="0" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txtAngeNamn" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtAngeEpost" alignment="0" max="32767" attributes="0"/>
                           <Component id="pwAngeLosenord" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAngeTelefon" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAngeOmrade" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtAngeAgent" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtTilldelaId" max="32767" attributes="0"/>
-                          <Component id="txtAngeNamn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtRegDatum" alignment="0" pref="168" max="32767" attributes="0"/>
+                          <Component id="txtTilldelaId" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtRegDatum" pref="227" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="comboboxRas" max="32767" attributes="0"/>
-                          <Component id="txtRasegenskaper" max="32767" attributes="0"/>
-                          <Component id="lblRasegenskaper" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboboxRas" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRasegenskaper" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="59" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblRegistreraNyAlien" min="-2" pref="37" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblRegDatum" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="txtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboboxRas" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtRegDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboboxRas" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtAngeNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtAngeEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pwAngeLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAngeTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAngeOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAngeAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTilldelaId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtRasegenskaper" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtAngeNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRasegenskaper" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtAngeEpost" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblEpost" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtRasegenskaper" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pwAngeLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAngeTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAngeOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAngeAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTilldelaId" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
               <Component id="btnLaggTill" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
@@ -174,12 +176,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblOmrade">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Omr&#xe5;de:"/>
+        <Property name="text" type="java.lang.String" value="Omr&#xe5;de ID:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAnsvarigAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ansvarig agent:"/>
+        <Property name="text" type="java.lang.String" value="Ansvarig agent ID:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAngeNamn">
@@ -236,6 +238,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rasegenskaper:"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JComboBox" name="comboboxRas">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -246,21 +253,13 @@
           </StringArray>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboboxRasActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="txtRasegenskaper">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRasegenskaperActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblRasegenskaper">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Rasegenskaper:"/>
+        <Property name="columns" type="int" value="5"/>
       </Properties>
     </Component>
   </SubComponents>

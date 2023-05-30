@@ -14,18 +14,18 @@ import oru.inf.InfException;
  * @author danie
  */
 public class AlienInloggning extends javax.swing.JFrame {
-    
+
     private InfDB idb;
-   
+
     /**
      * Creates new form Inloggning
      */
     public AlienInloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
-       
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,21 +148,20 @@ public class AlienInloggning extends javax.swing.JFrame {
         String epost = angeEpost.getText();
         char[] charLosenord = angeLosenord.getPassword();
         String losenord = new String(charLosenord);
-        
-        if ( Validering.kollaTomRuta(angeEpost) && ( Validering.kollaTomRuta2(angeLosenord)))
+
+        if (Validering.kollaTomRuta(angeEpost) && (Validering.kollaTomRuta2(angeLosenord)))
 
         try {
             String sqlFraga = "SELECT losenord FROM alien WHERE Epost = '" + epost + "'";
             String getAlienID = "SELECT Alien_ID FROM alien WHERE Epost = '" + epost + "'";
             String alienID = idb.fetchSingle(getAlienID);
-            
+
             String sqlSvarLosenord = idb.fetchSingle(sqlFraga);
-            
 
             if (sqlSvarLosenord != null && losenord.equals(sqlSvarLosenord)) {
                 dispose();
                 new AlienStartsida(idb, alienID).setVisible(true);
-            
+
             } else {
                 JOptionPane.showMessageDialog(null, "E-post eller lösenord är felaktigt.");
             }
@@ -182,11 +181,9 @@ public class AlienInloggning extends javax.swing.JFrame {
     }//GEN-LAST:event_angeEpostActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-   
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField angeEpost;
@@ -199,5 +196,4 @@ public class AlienInloggning extends javax.swing.JFrame {
     private javax.swing.JTextField txtValkommen;
     // End of variables declaration//GEN-END:variables
 
-    
 }

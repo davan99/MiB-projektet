@@ -98,14 +98,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="angeLosenord">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="planka"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="angeEpost">
       <Properties>
         <Property name="columns" type="int" value="5"/>
-        <Property name="text" type="java.lang.String" value="ao@mib.net"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="angeEpostActionPerformed"/>

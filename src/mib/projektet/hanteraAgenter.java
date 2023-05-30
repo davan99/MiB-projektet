@@ -17,7 +17,9 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class hanteraAgenter extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+
     /**
      * Creates new form hanteraAlien
      */
@@ -210,14 +212,13 @@ private InfDB idb;
         String omrade = omradeID.getText();
         String adminen = admin.getText();
         String id = agentensid.getText();
-        
-        
+
         try {
-            
+
             SimpleDateFormat datumFormat = new SimpleDateFormat("yyyy-MM-dd");
             datumFormat.parse(datum);
             datumFormat.setLenient(false);
-            
+
             String sqlFragaFinnsEpost = "SELECT * FROM agent WHERE epost = '" + epost + "'";
             if (idb.fetchSingle(sqlFragaFinnsEpost) != null) {
                 JOptionPane.showMessageDialog(this, "E-postadressen finns redan i databasen.");
@@ -229,24 +230,23 @@ private InfDB idb;
                 JOptionPane.showMessageDialog(this, "Agent-id finns redan i databasen.");
                 return;
             }
-          // Validering av telefonnummer
-   if (!Validering.valideraTelefonnummer(telefon)) {
-        JOptionPane.showMessageDialog(this, "Telefonnummer kan endast innehålla siffror.");
-        return;
-    }
-   
-   if (!Validering.valideraOmradeID(omrade)) {
-            JOptionPane.showMessageDialog(this, "Ogiltigt omradeID. Endast 1 = Svealand, 2 = Götaland eller 4 = Norrland är tillåtna.");
-            return;
-        }
-    if (!Validering.kollaAdminStatus(adminen)) {
-            JOptionPane.showMessageDialog(this, "Ogiltig adminstatus. Vänligen ange antingen 'J' för JA eller 'N' för NEJ.");
-            return;
-        }
+            // Validering av telefonnummer
+            if (!Validering.valideraTelefonnummer(telefon)) {
+                JOptionPane.showMessageDialog(this, "Telefonnummer kan endast innehålla siffror.");
+                return;
+            }
 
+            if (!Validering.valideraOmradeID(omrade)) {
+                JOptionPane.showMessageDialog(this, "Ogiltigt omradeID. Endast 1 = Svealand, 2 = Götaland eller 4 = Norrland är tillåtna.");
+                return;
+            }
+            if (!Validering.kollaAdminStatus(adminen)) {
+                JOptionPane.showMessageDialog(this, "Ogiltig adminstatus. Vänligen ange antingen 'J' för JA eller 'N' för NEJ.");
+                return;
+            }
 
             String sqlFraga = "INSERT INTO agent (Agent_id, namn, telefon, anstallningsdatum, administrator, epost, losenord, omrade ) "
-                    + "VALUES (" + id + ", '" + namn + "', '" + telefon + "', '" + datum + "', '" + adminen + "', '" + epost+ "', '" + losenord + "', '" + omrade + "')";
+                    + "VALUES (" + id + ", '" + namn + "', '" + telefon + "', '" + datum + "', '" + adminen + "', '" + epost + "', '" + losenord + "', '" + omrade + "')";
 
             idb.insert(sqlFraga);
             JOptionPane.showMessageDialog(this, "Agent har lagts till i databasen.");
@@ -258,10 +258,8 @@ private InfDB idb;
             JOptionPane.showMessageDialog(this, "Ange datum i rätt format, yyyy-MM-dd!");
 
         }
-    
-    
-    
-        
+
+
     }//GEN-LAST:event_btnLaggTillActionPerformed
 
     private void textAnstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAnstActionPerformed
@@ -283,7 +281,6 @@ private InfDB idb;
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Admin;

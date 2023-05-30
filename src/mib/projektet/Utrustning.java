@@ -16,8 +16,10 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class Utrustning extends javax.swing.JFrame {
+
     private final String agentID;
     private InfDB idb;
+
     /**
      * Creates new form Utrustning
      */
@@ -190,10 +192,10 @@ public class Utrustning extends javax.swing.JFrame {
     private void btnVisaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaUtrustningActionPerformed
         textRuta.setText("");
         ArrayList<String> allUtrustning;
-        
+
         try {
-           
-            String sqlFraga = "select Benamning from Utrustning join Innehar_Utrustning IU on Utrustning.Utrustnings_ID = IU.Utrustnings_ID where Agent_ID ='" +agentID + "'";
+
+            String sqlFraga = "select Benamning from Utrustning join Innehar_Utrustning IU on Utrustning.Utrustnings_ID = IU.Utrustnings_ID where Agent_ID ='" + agentID + "'";
             allUtrustning = idb.fetchColumn(sqlFraga);
 
             for (String utrustning : allUtrustning) {
@@ -206,26 +208,25 @@ public class Utrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVisaUtrustningActionPerformed
 
     private void btnLaggTillUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggTillUtrustningActionPerformed
-   
+
         String valdUtrustning = txtAngeUtrustningId.getText();
         String datum = txtAngeDatum.getText();
-    
+
         try {
-            
+
             SimpleDateFormat datumFormat = new SimpleDateFormat("yyyy-MM-dd");
             datumFormat.parse(datum);
             datumFormat.setLenient(false);
-            
-           String sqlFragaFinnsUtrustning = "SELECT * FROM utrustning WHERE utrustnings_id = '" + valdUtrustning + "'";
+
+            String sqlFragaFinnsUtrustning = "SELECT * FROM utrustning WHERE utrustnings_id = '" + valdUtrustning + "'";
             if (idb.fetchSingle(sqlFragaFinnsUtrustning) == null) {
-               JOptionPane.showMessageDialog(this, "Ange ett tal mellan 1-4.");
+                JOptionPane.showMessageDialog(this, "Ange ett tal mellan 1-4.");
                 return;
             }
 
-            
-            String sqlFraga = "INSERT INTO innehar_utrustning (Utrustnings_ID, Agent_ID, Utkvitteringsdatum) " +
-                              "VALUES (" + valdUtrustning + ", '" +agentID + "', '" + datum + "')";
-             idb.insert(sqlFraga);
+            String sqlFraga = "INSERT INTO innehar_utrustning (Utrustnings_ID, Agent_ID, Utkvitteringsdatum) "
+                    + "VALUES (" + valdUtrustning + ", '" + agentID + "', '" + datum + "')";
+            idb.insert(sqlFraga);
             JOptionPane.showMessageDialog(this, "Utrustningen har lagts till.");
 
         } catch (InfException e) {
@@ -235,7 +236,7 @@ public class Utrustning extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ange datum i rätt format, yyyy-MM-dd!");
 
         }
-   
+
 
     }//GEN-LAST:event_btnLaggTillUtrustningActionPerformed
 
@@ -248,7 +249,7 @@ public class Utrustning extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAngeUtrustningIdActionPerformed
 
     private void tillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tillbakaActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_tillbakaActionPerformed
 
 //    private void fyllCombo() {
@@ -269,7 +270,6 @@ public class Utrustning extends javax.swing.JFrame {
 //    /**
 //     * @param args the command line arguments
 //     */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLaggTillUtrustning;

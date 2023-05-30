@@ -15,7 +15,9 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class infoAllFaktaAlien extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+
     /**
      * Creates new form infoAllFaktaAlien
      */
@@ -108,7 +110,7 @@ private InfDB idb;
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAlienActionPerformed
-      
+
         textRuta.setText("");
 
         ArrayList<HashMap<String, String>> soktaAlien;
@@ -119,7 +121,7 @@ private InfDB idb;
             soktaAlien = idb.fetchRows(sqlFraga);
 
             for (HashMap<String, String> alien : soktaAlien) {
-                textRuta.append( "Alien-ID" + "\t");
+                textRuta.append("Alien-ID" + "\t");
                 textRuta.append("RegDatum " + "\t");
                 textRuta.append("Epost " + "\t" + "\t");
                 textRuta.append("Lösenord " + "\t");
@@ -135,7 +137,7 @@ private InfDB idb;
                 textRuta.append(alien.get("Ansvarig_Agent") + "\n");
             }
         } catch (InfException e) {
-       System.out.println("fel" + e.getMessage());
+            System.out.println("fel" + e.getMessage());
         }
     }//GEN-LAST:event_comboAlienActionPerformed
 
@@ -156,8 +158,7 @@ private InfDB idb;
             for (String alien : allaAlien) {
                 comboAlien.addItem(alien);
             }
-        } 
-        catch (InfException e) {
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }

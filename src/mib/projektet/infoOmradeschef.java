@@ -13,11 +13,13 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class infoOmradeschef extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+
     /**
      * Creates new form infoOmradeschef
      */
-    public infoOmradeschef (InfDB idb) {
+    public infoOmradeschef(InfDB idb) {
         initComponents();
         this.idb = idb;
     }
@@ -134,43 +136,37 @@ private InfDB idb;
             String sqlFraga = " select namn from agent join omradeschef on omradeschef.agent_id = agent.agent_ID where omradeschef.omrade = 2";
             String omradeschef = idb.fetchSingle(sqlFraga);
 
-            
-                textRuta.append(omradeschef);
-            }
-         catch (InfException e) {
+            textRuta.append(omradeschef);
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
 
         }
-       
+
     }//GEN-LAST:event_gotalandActionPerformed
 
     private void svealandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svealandActionPerformed
-            textRuta.setText("");
+        textRuta.setText("");
 
         try {
             String sqlFraga = " select namn from agent join omradeschef on omradeschef.agent_id = agent.agent_ID where omradeschef.omrade = 1";
             String omradeschef = idb.fetchSingle(sqlFraga);
 
-            
-                textRuta.append(omradeschef);
-            }
-         catch (InfException e) {
+            textRuta.append(omradeschef);
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
 
         }
     }//GEN-LAST:event_svealandActionPerformed
 
     private void norrlandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norrlandActionPerformed
-            textRuta.setText("");
+        textRuta.setText("");
 
         try {
             String sqlFraga = " select namn from agent join omradeschef on omradeschef.agent_id = agent.agent_ID where omradeschef.omrade = 4";
             String omradeschef = idb.fetchSingle(sqlFraga);
 
-            
-                textRuta.append(omradeschef);
-            }
-         catch (InfException e) {
+            textRuta.append(omradeschef);
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
 
         }
@@ -180,7 +176,6 @@ private InfDB idb;
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton gotaland;

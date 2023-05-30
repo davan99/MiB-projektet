@@ -4,7 +4,6 @@
  */
 package mib.projektet;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
@@ -17,18 +16,20 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class tabortAgent extends javax.swing.JFrame {
+
     private final String agentID;
     private InfDB idb;
-   
+
     /**
      * Creates new form Utrustning
      */
     public tabortAgent(InfDB idb, String agentID) {
         initComponents();
         this.idb = idb;
-        this.agentID = agentID; 
+        this.agentID = agentID;
 //        fyllCombo();
         fyllCombo2();
+
     }
 
     /**
@@ -132,38 +133,76 @@ public class tabortAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private String hittaSlumpmässigAgent() throws InfException {
+        // Hämta alla agent-ID från databasen
+        String sqlFraga = "SELECT Agent_ID FROM agent";
+        ArrayList<String> allaAgenter = idb.fetchColumn(sqlFraga);
+
+        // Generera en slumpmässig indexposition för att välja en agent
+        int slumpIndex = (int) (Math.random() * allaAgenter.size());
+
+        // Returnera det slumpmässiga agent-ID:et
+        return allaAgenter.get(slumpIndex);
+    }
+
+
     private void btnTabortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortAgentActionPerformed
-   String valdAgent = comboValjTabortAgent.getSelectedItem().toString();
+        String valdAgent = comboValjTabortAgent.getSelectedItem().toString();
 
 //Kollar så vald agent finns och inte är samma agent (AgentID) som har loggat in.
+        if (valdAgent != null && !valdAgent.equals(agentID))
+try {
+            // Hämta en slumpmässig agent från databasen
+            String slumpmässigAgent = hittaSlumpmässigAgent();
+            
+             // Kontrollera om det slumpmässiga agent-ID:et redan finns i omradeschef
+            String sqlFragaKontroll = "SELECT * FROM omradeschef WHERE Agent_ID = " + slumpmässigAgent;
+            if (idb.fetchSingle(sqlFragaKontroll) != null) {
+                // Om det finns en post med det slumpmässiga agent-ID:et i omradeschef, generera ett nytt slumpmässigt agent-ID
+                slumpmässigAgent = hittaSlumpmässigAgent();
+            }
 
-if(valdAgent != null && !valdAgent.equals(agentID))
-try{
-     idb.delete("DELETE FROM omradeschef WHERE Agent_ID = "+ valdAgent); 
-     idb.delete("DELETE FROM kontorschef WHERE Agent_ID = " + valdAgent); 
-     idb.delete("DELETE FROM faltagent WHERE Agent_ID = " + valdAgent) ;
-     idb.delete("Delete from Agent where Agent.Agent_ID = " + valdAgent);
-        JOptionPane.showMessageDialog(this, "Agenten har tagits bort!");
+            // Uppdatera aliens som tidigare hade den borttagna agenten som ansvarig agent
+            String sqlFraga = "UPDATE alien SET Ansvarig_Agent = '" + slumpmässigAgent + "' WHERE Ansvarig_Agent = " + valdAgent;
+            idb.update(sqlFraga);
 
-    
-    
-    
+            // Uppdatera områdeschefer som tidigare hade den borttagna agenten som områdeschef
+            String sqlFragaOmradeschef = "UPDATE omradeschef SET Agent_ID = '" + slumpmässigAgent + "' WHERE Agent_ID = " + valdAgent;
+            idb.update(sqlFragaOmradeschef);
 
-} catch (InfException e) {
-    e.printStackTrace();
-    JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
+            // Uppdatera kontorschefer som tidigare hade den borttagna agenten som kontorschef
+            String sqlFragaKontorschef = "UPDATE kontorschef SET Agent_ID = '" + slumpmässigAgent + "' WHERE Agent_ID = " + valdAgent;
+            idb.update(sqlFragaKontorschef);
 
-       } else {
-        JOptionPane.showMessageDialog(this, "Du kan inte ta bort dig själv!");
-}
+            // Ta bort eventuella rader i alien som har den valda agenten som ansvarig agent
+            idb.delete("DELETE FROM alien WHERE Ansvarig_Agent = " + valdAgent);
+
+            // Ta bort eventuella rader i innehar_utrustning för den valda agenten
+            idb.delete("DELETE FROM innehar_utrustning WHERE Agent_ID = " + valdAgent);
+
+            idb.delete("DELETE FROM omradeschef WHERE Agent_ID = " + valdAgent);
+            idb.delete("DELETE FROM kontorschef WHERE Agent_ID = " + valdAgent);
+            idb.delete("DELETE FROM faltagent WHERE Agent_ID = " + valdAgent);
+            idb.delete("Delete from Agent where Agent.Agent_ID = " + valdAgent);
+            JOptionPane.showMessageDialog(this, "Agenten har tagits bort!");
+
+        } catch (InfException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Du kan inte ta bort dig själv!");
+        }
+
 
     }//GEN-LAST:event_btnTabortAgentActionPerformed
 
+
     private void comboValjTabortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboValjTabortAgentActionPerformed
-     
-     String valdAgent = comboValjTabortAgent.getSelectedItem().toString();
-     fyllCombo2();
-     comboValjTabortAgent.setSelectedItem(valdAgent);
+
+        String valdAgent = comboValjTabortAgent.getSelectedItem().toString();
+        fyllCombo2();
+        comboValjTabortAgent.setSelectedItem(valdAgent);
     }//GEN-LAST:event_comboValjTabortAgentActionPerformed
 
     private void btnVisaIdNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaIdNamnActionPerformed
@@ -177,12 +216,12 @@ try{
             soktAgent = idb.fetchRows(sqlFraga);
 
             for (HashMap<String, String> agenter : soktAgent) {
-               
-              textRuta.append(agenter.get("Agent_ID")+" "+ agenter.get("Namn") + "\n");
-            
+
+                textRuta.append(agenter.get("Agent_ID") + " " + agenter.get("Namn") + "\n");
+
             }
         } catch (InfException e) {
-       System.out.println("fel" + e.getMessage());
+            System.out.println("fel" + e.getMessage());
         }
 
     }//GEN-LAST:event_btnVisaIdNamnActionPerformed
@@ -191,26 +230,21 @@ try{
         this.dispose();
     }//GEN-LAST:event_btnAvbrytActionPerformed
 
+    private void fyllCombo2() {
 
-  private void fyllCombo2() {
-         
-    String sqlFraga = "select Agent_ID from Agent ORDER BY Agent_ID ASC";
-    ArrayList<String> allaAgenter;
+        String sqlFraga = "select Agent_ID from Agent ORDER BY Agent_ID ASC";
+        ArrayList<String> allaAgenter;
 
-    try {
-        allaAgenter = idb.fetchColumn(sqlFraga);
+        try {
+            allaAgenter = idb.fetchColumn(sqlFraga);
 
-        comboValjTabortAgent.setModel(new DefaultComboBoxModel<>(allaAgenter.toArray(new String[0])));
-    } catch (InfException e) {
-        System.out.println("fel" + e.getMessage());
+            comboValjTabortAgent.setModel(new DefaultComboBoxModel<>(allaAgenter.toArray(new String[0])));
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
+
     }
 
-  
-  
-  
-  
-} 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvbryt;

@@ -13,7 +13,9 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class infoRas extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+
     /**
      * Creates new form infoRas
      */
@@ -142,14 +144,14 @@ private InfDB idb;
     }//GEN-LAST:event_bogloditeActionPerformed
 
     private void squidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_squidActionPerformed
-           textRuta.setText("");
-        
-          ArrayList<String> allaNamn;
-       try { 
-         String sqlFraga = " Select namn from Alien join Squid on Alien.Alien_ID = Squid.Alien_ID";
-         allaNamn = idb.fetchColumn(sqlFraga);
-       
-       for (String alienNamn : allaNamn) {
+        textRuta.setText("");
+
+        ArrayList<String> allaNamn;
+        try {
+            String sqlFraga = " Select namn from Alien join Squid on Alien.Alien_ID = Squid.Alien_ID";
+            allaNamn = idb.fetchColumn(sqlFraga);
+
+            for (String alienNamn : allaNamn) {
                 textRuta.append(alienNamn + "\n");
             }
         } catch (InfException e) {
@@ -159,14 +161,14 @@ private InfDB idb;
     }//GEN-LAST:event_squidActionPerformed
 
     private void wormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wormActionPerformed
-          textRuta.setText("");
-        
-          ArrayList<String> allaNamn;
-       try { 
-         String sqlFraga = " Select namn from Alien join Worm on Alien.Alien_ID = Worm.Alien_ID";
-         allaNamn = idb.fetchColumn(sqlFraga);
-       
-       for (String alienNamn : allaNamn) {
+        textRuta.setText("");
+
+        ArrayList<String> allaNamn;
+        try {
+            String sqlFraga = " Select namn from Alien join Worm on Alien.Alien_ID = Worm.Alien_ID";
+            allaNamn = idb.fetchColumn(sqlFraga);
+
+            for (String alienNamn : allaNamn) {
                 textRuta.append(alienNamn + "\n");
             }
         } catch (InfException e) {
@@ -178,7 +180,7 @@ private InfDB idb;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-  
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boglodite;

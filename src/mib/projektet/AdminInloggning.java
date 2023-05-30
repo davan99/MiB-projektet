@@ -8,13 +8,12 @@ import oru.inf.InfException;
 public class AdminInloggning extends javax.swing.JFrame {
 
     private InfDB idb;
-    
+
     public AdminInloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,10 +35,7 @@ public class AdminInloggning extends javax.swing.JFrame {
 
         txtLösenord.setText("Lösenord:");
 
-        angeLosenord.setText("planka");
-
         angeEpost.setColumns(5);
-        angeEpost.setText("ao@mib.net");
         angeEpost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 angeEpostActionPerformed(evt);
@@ -109,16 +105,15 @@ public class AdminInloggning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
-      
-        // Jämför inmatad info mot databasen och kontrollerar så att användaren har adminbehörighet.
 
+    private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
+
+        // Jämför inmatad info mot databasen och kontrollerar så att användaren har adminbehörighet.
         String epost = angeEpost.getText();
         char[] charLosenord = angeLosenord.getPassword();
         String losenord = new String(charLosenord);
 
-        if ( Validering.kollaTomRuta(angeEpost) && ( Validering.kollaTomRuta2(angeLosenord)))
+        if (Validering.kollaTomRuta(angeEpost) && (Validering.kollaTomRuta2(angeLosenord)))
         
         try {
             String sqlFraga = "SELECT losenord FROM agent WHERE Epost = '" + epost + "'";
@@ -149,9 +144,6 @@ public class AdminInloggning extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-
-   
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

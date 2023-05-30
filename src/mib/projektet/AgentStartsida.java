@@ -11,8 +11,10 @@ import oru.inf.InfDB;
  * @author oskarjolesjo
  */
 public class AgentStartsida extends javax.swing.JFrame {
+
     private final String agentID;
     private InfDB idb;
+
     /**
      * Creates new form AgentStartsida
      */
@@ -137,14 +139,13 @@ public class AgentStartsida extends javax.swing.JFrame {
 
     private void btnLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLosenordActionPerformed
 
-
-new andraLosenord(idb, agentID).setVisible(true);        
+        new andraLosenord(idb, agentID).setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_btnLosenordActionPerformed
 
     private void btnUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUtrustningActionPerformed
-    
-    new Utrustning(idb, agentID).setVisible(true);
+
+        new Utrustning(idb, agentID).setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUtrustningActionPerformed
 
@@ -154,7 +155,7 @@ new andraLosenord(idb, agentID).setVisible(true);
     }//GEN-LAST:event_btnAlienActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    new InformationAgent(idb, agentID).setVisible(true);
+        new InformationAgent(idb, agentID).setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
