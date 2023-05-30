@@ -15,7 +15,9 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class infoAllFaktaAgent extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+
     /**
      * Creates new form infoAllFaktaAlien
      */
@@ -108,7 +110,7 @@ private InfDB idb;
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAgentActionPerformed
-      
+
         textRuta.setText("");
 
         ArrayList<HashMap<String, String>> soktaAgenter;
@@ -119,7 +121,7 @@ private InfDB idb;
             soktaAgenter = idb.fetchRows(sqlFraga);
 
             for (HashMap<String, String> agent : soktaAgenter) {
-                textRuta.append( "Agent-ID" + "\t");
+                textRuta.append("Agent-ID" + "\t");
                 textRuta.append("Namn " + "\t");
                 textRuta.append("Telefon " + "\t");
                 textRuta.append("Ans-datum " + "\t");
@@ -127,7 +129,7 @@ private InfDB idb;
                 textRuta.append("Epost " + "\t");
                 textRuta.append("Losenord " + "\t");
                 textRuta.append("Område " + "\n");
-                
+
                 textRuta.append(agent.get("Agent_ID") + "\t");
                 textRuta.append(agent.get("Namn") + "\t");
                 textRuta.append(agent.get("Telefon") + "\t");
@@ -138,7 +140,7 @@ private InfDB idb;
                 textRuta.append(agent.get("Omrade") + "\n");
             }
         } catch (InfException e) {
-       System.out.println("fel" + e.getMessage());
+            System.out.println("fel" + e.getMessage());
         }
     }//GEN-LAST:event_comboAgentActionPerformed
 
@@ -159,8 +161,7 @@ private InfDB idb;
             for (String agent : allaAgenter) {
                 comboAgent.addItem(agent);
             }
-        } 
-        catch (InfException e) {
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }

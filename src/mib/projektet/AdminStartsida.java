@@ -3,14 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib.projektet;
+
 import oru.inf.InfDB;
+
 /**
  *
  * @author oskarjolesjo
  */
 public class AdminStartsida extends javax.swing.JFrame {
-private InfDB idb;
-private final String agentID;
+
+    private InfDB idb;
+    private final String agentID;
+
     /**
      * Creates new form AdminStartsida
      */
@@ -213,11 +217,11 @@ private final String agentID;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void AgentregActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgentregActionPerformed
-     new hanteraAgenter(idb).setVisible(true);
+        new hanteraAgenter(idb).setVisible(true);
     }//GEN-LAST:event_AgentregActionPerformed
 
     private void informationAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informationAdminActionPerformed
-       new informationAdmin(idb).setVisible(true);
+        new informationAdmin(idb).setVisible(true);
     }//GEN-LAST:event_informationAdminActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -225,7 +229,7 @@ private final String agentID;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void uppdateraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraAlienActionPerformed
-       new uppdateraAlien(idb).setVisible(true);
+        new uppdateraAlien(idb).setVisible(true);
     }//GEN-LAST:event_uppdateraAlienActionPerformed
 
     private void omradesKontorChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradesKontorChefActionPerformed
@@ -233,7 +237,7 @@ private final String agentID;
     }//GEN-LAST:event_omradesKontorChefActionPerformed
 
     private void btnTaBortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortUtrustningActionPerformed
-       new tabortUtrustning(idb, agentID).setVisible(true); // TODO add your handling code here:
+        new tabortUtrustning(idb, agentID).setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_btnTaBortUtrustningActionPerformed
 
     private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
@@ -241,14 +245,13 @@ private final String agentID;
     }//GEN-LAST:event_btnTaBortAlienActionPerformed
 
     private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAgentActionPerformed
-       new tabortAgent(idb, agentID).setVisible(true);
+        new tabortAgent(idb, agentID).setVisible(true);
     }//GEN-LAST:event_btnTaBortAgentActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agentreg;

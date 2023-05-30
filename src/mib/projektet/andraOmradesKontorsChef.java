@@ -15,7 +15,9 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class andraOmradesKontorsChef extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+
     /**
      * Creates new form andraOmradesKontorsChef
      */
@@ -302,18 +304,17 @@ private InfDB idb;
         id.setText("");
         namn.setText("");
         ArrayList<HashMap<String, String>> soktChef;
-        
-        try{
+
+        try {
             String sqlFraga = "Select kontorschef.agent_id, namn from agent join kontorschef on agent.agent_id = kontorschef.agent_id";
             soktChef = idb.fetchRows(sqlFraga);
-            
-            for (HashMap <String, String> chef : soktChef){
+
+            for (HashMap<String, String> chef : soktChef) {
                 id.setText(chef.get("Agent_ID"));
                 namn.setText(chef.get("Namn"));
             }
-            
-        }
-        catch (InfException e) {
+
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -322,140 +323,133 @@ private InfDB idb;
         id2.setText("");
         namn2.setText("");
         ArrayList<HashMap<String, String>> nyChef;
-        
-        try{
+
+        try {
             String valdAgent = comboKontor.getSelectedItem().toString();
             String sqlFraga = "Select namn, agent_id from agent where namn = '" + valdAgent + "'";
             nyChef = idb.fetchRows(sqlFraga);
-            
-            for (HashMap <String, String> chef : nyChef){
+
+            for (HashMap<String, String> chef : nyChef) {
                 id2.setText(chef.get("Agent_ID"));
                 namn2.setText(chef.get("Namn"));
             }
-            
-        }
-        catch (InfException e) {
+
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }//GEN-LAST:event_nychefuppgifterActionPerformed
 
     private void uppdateraKontorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraKontorActionPerformed
-        
+
         try {
-              String nychefID = id2.getText();
-              String gammalchefID = id.getText();
-              
-              String sqlFraga = "UPDATE kontorschef SET agent_ID = '" + nychefID + "' where agent_id = '" + gammalchefID + "'";
-              idb.update(sqlFraga);
-              JOptionPane.showMessageDialog(null, "Kontorschef har uppdaterats");
-        }
-        catch (InfException e) {
+            String nychefID = id2.getText();
+            String gammalchefID = id.getText();
+
+            String sqlFraga = "UPDATE kontorschef SET agent_ID = '" + nychefID + "' where agent_id = '" + gammalchefID + "'";
+            idb.update(sqlFraga);
+            JOptionPane.showMessageDialog(null, "Kontorschef har uppdaterats");
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
-        } 
+        }
     }//GEN-LAST:event_uppdateraKontorActionPerformed
 
     private void gotalandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gotalandActionPerformed
         id3.setText("");
         namn3.setText("");
         ArrayList<HashMap<String, String>> soktChef;
-        
-        try{
+
+        try {
             String sqlFraga = "select Omradeschef.Agent_id, namn from Omradeschef join agent on Agent.Agent_ID = Omradeschef.Agent_ID where Omradeschef.Omrade = 2";
             soktChef = idb.fetchRows(sqlFraga);
-            
-            for (HashMap <String, String> chef : soktChef){
+
+            for (HashMap<String, String> chef : soktChef) {
                 id3.setText(chef.get("Agent_ID"));
                 namn3.setText(chef.get("Namn"));
             }
-            
-        }
-        catch (InfException e) {
+
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
-                                            
+
 
     }//GEN-LAST:event_gotalandActionPerformed
 
     private void norrlandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norrlandActionPerformed
-       id3.setText("");
+        id3.setText("");
         namn3.setText("");
         ArrayList<HashMap<String, String>> soktChef;
-        
-        try{
+
+        try {
             String sqlFraga = "select Omradeschef.Agent_id, namn from Omradeschef join agent on Agent.Agent_ID = Omradeschef.Agent_ID where Omradeschef.Omrade = 4";
             soktChef = idb.fetchRows(sqlFraga);
-            
-            for (HashMap <String, String> chef : soktChef){
+
+            for (HashMap<String, String> chef : soktChef) {
                 id3.setText(chef.get("Agent_ID"));
                 namn3.setText(chef.get("Namn"));
             }
-            
-        }
-        catch (InfException e) {
+
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }//GEN-LAST:event_norrlandActionPerformed
 
     private void svealandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svealandActionPerformed
-       id3.setText("");
+        id3.setText("");
         namn3.setText("");
         ArrayList<HashMap<String, String>> soktChef;
-        
-        try{
+
+        try {
             String sqlFraga = "select Omradeschef.Agent_id, namn from Omradeschef join agent on Agent.Agent_ID = Omradeschef.Agent_ID where Omradeschef.Omrade = 1";
             soktChef = idb.fetchRows(sqlFraga);
-            
-            for (HashMap <String, String> chef : soktChef){
+
+            for (HashMap<String, String> chef : soktChef) {
                 id3.setText(chef.get("Agent_ID"));
                 namn3.setText(chef.get("Namn"));
             }
-            
-        }
-        catch (InfException e) {
+
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }//GEN-LAST:event_svealandActionPerformed
 
     private void nychefuppgifter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nychefuppgifter2ActionPerformed
-         id4.setText("");
+        id4.setText("");
         namn4.setText("");
         ArrayList<HashMap<String, String>> nyChef;
-        
-        try{
+
+        try {
             String valdAgent = comboOmrade.getSelectedItem().toString();
             String sqlFraga = "Select namn, agent_id from agent where namn = '" + valdAgent + "'";
             nyChef = idb.fetchRows(sqlFraga);
-            
-            for (HashMap <String, String> chef : nyChef){
+
+            for (HashMap<String, String> chef : nyChef) {
                 id4.setText(chef.get("Agent_ID"));
                 namn4.setText(chef.get("Namn"));
             }
-            
-        }
-        catch (InfException e) {
+
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }//GEN-LAST:event_nychefuppgifter2ActionPerformed
 
     private void uppdateraOmradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraOmradeActionPerformed
-         try {
-              String nychefID = id4.getText();
-              String gammalchefID = id3.getText();
-              
-              String sqlFraga = "UPDATE omradeschef SET agent_ID = '" + nychefID + "' where agent_id = '" + gammalchefID + "'";
-              idb.update(sqlFraga);
-              JOptionPane.showMessageDialog(null, "Områdeschef har uppdaterats");
-        }
-        catch (InfException e) {
+        try {
+            String nychefID = id4.getText();
+            String gammalchefID = id3.getText();
+
+            String sqlFraga = "UPDATE omradeschef SET agent_ID = '" + nychefID + "' where agent_id = '" + gammalchefID + "'";
+            idb.update(sqlFraga);
+            JOptionPane.showMessageDialog(null, "Områdeschef har uppdaterats");
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
-        } 
+        }
     }//GEN-LAST:event_uppdateraOmradeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-       /**
+    /**
      * @param args the command line arguments
      */
     private void fyllCombo() {
@@ -468,12 +462,11 @@ private InfDB idb;
             for (String agent : allaAgenter) {
                 comboOmrade.addItem(agent);
             }
-        } 
-        catch (InfException e) {
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }
-    
+
     private void fyllCombo1() {
         String sqlFraga = " SELECT namn from agent";
         ArrayList<String> allaAgenter;
@@ -484,8 +477,7 @@ private InfDB idb;
             for (String agent : allaAgenter) {
                 comboKontor.addItem(agent);
             }
-        } 
-        catch (InfException e) {
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }

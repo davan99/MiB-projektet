@@ -5,13 +5,16 @@
 package mib.projektet;
 
 import oru.inf.InfDB;
+
 /**
  *
  * @author oskarjolesjo
  */
 public class InformationAgent extends javax.swing.JFrame {
-private InfDB idb;
-private final String agentID;
+
+    private InfDB idb;
+    private final String agentID;
+
     /**
      * Creates new form InformationAgent
      */
@@ -146,7 +149,7 @@ private final String agentID;
     }// </editor-fold>//GEN-END:initComponents
 
     private void DatumAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatumAlienActionPerformed
-       new infoDatum(idb).setVisible(true);
+        new infoDatum(idb).setVisible(true);
     }//GEN-LAST:event_DatumAlienActionPerformed
 
     private void angivenPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angivenPlatsActionPerformed
@@ -162,7 +165,7 @@ private final String agentID;
     }//GEN-LAST:event_btnTopplistaAgentActionPerformed
 
     private void allFaktaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allFaktaAlienActionPerformed
-       new infoAllFaktaAlien(idb).setVisible(true);
+        new infoAllFaktaAlien(idb).setVisible(true);
     }//GEN-LAST:event_allFaktaAlienActionPerformed
 
     private void btnOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådeschefActionPerformed
@@ -170,13 +173,12 @@ private final String agentID;
     }//GEN-LAST:event_btnOmrådeschefActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DatumAlien;

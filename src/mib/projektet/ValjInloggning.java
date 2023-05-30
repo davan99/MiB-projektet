@@ -10,11 +10,10 @@ import oru.inf.InfDB;
  *
  * @author lelle
  */
-
-
-
 public class ValjInloggning extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+
     /**
      * Creates new form ValjInloggning
      */
@@ -113,13 +112,8 @@ private InfDB idb;
 
     private void btnAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentActionPerformed
 
-        
-        
-        
-      new AgentInloggning(idb).setVisible(true);
+        new AgentInloggning(idb).setVisible(true);
 // inloogning.java ska ligga
-
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgentActionPerformed
@@ -132,9 +126,6 @@ private InfDB idb;
     /**
      * @param args the command line arguments
      */
-  
-
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdmin;

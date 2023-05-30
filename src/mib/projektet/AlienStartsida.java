@@ -3,15 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mib.projektet;
+
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author oskarjolesjo
  */
 public class AlienStartsida extends javax.swing.JFrame {
-private InfDB idb;
-private final String alienID;
+
+    private InfDB idb;
+    private final String alienID;
+
     /**
      * Creates new form AlienStartsida
      */
@@ -19,7 +23,7 @@ private final String alienID;
         initComponents();
         this.idb = idb;
         this.alienID = alienID;
-        
+
     }
 
     /**
@@ -122,20 +126,19 @@ private final String alienID;
 
     private void btnLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLosenordActionPerformed
         new andraLosenordAlien(idb, alienID).setVisible(true);
-      
+
     }//GEN-LAST:event_btnLosenordActionPerformed
 
     private void visaOmradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaOmradeschefActionPerformed
-     
+
         try {
             String sqlFraga = "SELECT Agent.namn from agent join Omradeschef on Agent.Agent_ID = Omradeschef.Agent_ID join Omrade on Omradeschef.Omrade = Omrades_ID join plats on Omrade.Omrades_ID = Plats.Finns_I join Alien on Finns_I = Plats where Alien_ID = '" + alienID + "' group by Agent.Namn";
-        String chef = idb.fetchSingle(sqlFraga);
-        Omradeschef.setText(chef);
+            String chef = idb.fetchSingle(sqlFraga);
+            Omradeschef.setText(chef);
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
         }
-        catch (InfException e) {
-       System.out.println("fel" + e.getMessage());
-        }
-         
+
     }//GEN-LAST:event_visaOmradeschefActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -145,7 +148,6 @@ private final String alienID;
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Omradeschef;

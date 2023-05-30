@@ -4,7 +4,6 @@
  */
 package mib.projektet;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
@@ -17,16 +16,17 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class tabortUtrustning extends javax.swing.JFrame {
+
     private final String agentID;
     private InfDB idb;
-   
+
     /**
      * Creates new form Utrustning
      */
     public tabortUtrustning(InfDB idb, String agentID) {
         initComponents();
         this.idb = idb;
-        this.agentID = agentID; 
+        this.agentID = agentID;
         fyllCombo();
         fyllCombo2();
     }
@@ -149,24 +149,24 @@ public class tabortUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTabortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortUtrustningActionPerformed
-   String valdUtrustning = comboValjTabort.getSelectedItem().toString();
-   String agentensID = comboValjAgent.getSelectedItem().toString();
-   
-try {
-   String sqlFragaFinnsUtrustning = "SELECT * FROM innehar_utrustning WHERE Agent_ID = " + agentensID + " AND Utrustnings_ID = " + valdUtrustning + ";";
+        String valdUtrustning = comboValjTabort.getSelectedItem().toString();
+        String agentensID = comboValjAgent.getSelectedItem().toString();
+
+        try {
+            String sqlFragaFinnsUtrustning = "SELECT * FROM innehar_utrustning WHERE Agent_ID = " + agentensID + " AND Utrustnings_ID = " + valdUtrustning + ";";
 //           "SELECT '" + valdUtrustning + "' FROM Utrustning JOIN Innehar_Utrustning IU ON Utrustning.Utrustnings_ID = IU.Utrustnings_ID WHERE Agent_ID ='" + agentensID + "'";
-    if (idb.fetchSingle(sqlFragaFinnsUtrustning) == null) {
-        JOptionPane.showMessageDialog(this, "Agenten har inte denna utrustning");
-        return;
-    }
-    
-    idb.delete("DELETE FROM innehar_utrustning WHERE Agent_ID = " + agentensID + " AND Utrustnings_ID = "+ valdUtrustning +";");
-    JOptionPane.showMessageDialog(this, "Utrustningen har tagits bort");
-} catch (InfException e) {
-    e.printStackTrace();
-    JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
-}
-   
+            if (idb.fetchSingle(sqlFragaFinnsUtrustning) == null) {
+                JOptionPane.showMessageDialog(this, "Agenten har inte denna utrustning");
+                return;
+            }
+
+            idb.delete("DELETE FROM innehar_utrustning WHERE Agent_ID = " + agentensID + " AND Utrustnings_ID = " + valdUtrustning + ";");
+            JOptionPane.showMessageDialog(this, "Utrustningen har tagits bort");
+        } catch (InfException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
+        }
+
 
     }//GEN-LAST:event_btnTabortUtrustningActionPerformed
 
@@ -177,65 +177,61 @@ try {
 
         try {
             String valdAgent = comboValjAgent.getSelectedItem().toString();
-            String sqlFraga = "select Utrustning.utrustnings_id, Benamning from Utrustning join Innehar_Utrustning IU on Utrustning.Utrustnings_ID = IU.Utrustnings_ID where Agent_ID ='"+ valdAgent +"'";
+            String sqlFraga = "select Utrustning.utrustnings_id, Benamning from Utrustning join Innehar_Utrustning IU on Utrustning.Utrustnings_ID = IU.Utrustnings_ID where Agent_ID ='" + valdAgent + "'";
             soktUtrustning = idb.fetchRows(sqlFraga);
 
             for (HashMap<String, String> utrustning : soktUtrustning) {
-               
-              textRuta.append(utrustning.get("Utrustnings_ID")+" "+ utrustning.get("Benamning") + "\n");
-            
+
+                textRuta.append(utrustning.get("Utrustnings_ID") + " " + utrustning.get("Benamning") + "\n");
+
             }
         } catch (InfException e) {
-       System.out.println("fel" + e.getMessage());
+            System.out.println("fel" + e.getMessage());
         }
-      
 
-    
+
     }//GEN-LAST:event_comboValjAgentActionPerformed
 
     private void comboValjTabortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboValjTabortActionPerformed
-     
-     String valdUtrustning = comboValjTabort.getSelectedItem().toString();
-     fyllCombo2();
-     comboValjTabort.setSelectedItem(valdUtrustning);
+
+        String valdUtrustning = comboValjTabort.getSelectedItem().toString();
+        fyllCombo2();
+        comboValjTabort.setSelectedItem(valdUtrustning);
     }//GEN-LAST:event_comboValjTabortActionPerformed
 
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
- private void fyllCombo() {
+    private void fyllCombo() {
 
-    String sqlFraga = "SELECT agent_ID from agent ORDER BY agent_ID ASC";
-    ArrayList<String> allaAgenter;
+        String sqlFraga = "SELECT agent_ID from agent ORDER BY agent_ID ASC";
+        ArrayList<String> allaAgenter;
 
-    try {
-        allaAgenter = idb.fetchColumn(sqlFraga);
+        try {
+            allaAgenter = idb.fetchColumn(sqlFraga);
 
-        comboValjAgent.setModel(new DefaultComboBoxModel<>(allaAgenter.toArray(new String[0])));
-    } catch (InfException e) {
-        System.out.println("fel" + e.getMessage());
-    }
-}
-  private void fyllCombo2() {
-         
-    String sqlFraga = "select utrustnings_id from Utrustning ORDER BY Utrustnings_ID ASC";
-    ArrayList<String> allaAgenter;
-
-    try {
-        allaAgenter = idb.fetchColumn(sqlFraga);
-
-        comboValjTabort.setModel(new DefaultComboBoxModel<>(allaAgenter.toArray(new String[0])));
-    } catch (InfException e) {
-        System.out.println("fel" + e.getMessage());
+            comboValjAgent.setModel(new DefaultComboBoxModel<>(allaAgenter.toArray(new String[0])));
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
     }
 
-  
-  
-  
-  
-  } 
-  
+    private void fyllCombo2() {
+
+        String sqlFraga = "select utrustnings_id from Utrustning ORDER BY Utrustnings_ID ASC";
+        ArrayList<String> allaAgenter;
+
+        try {
+            allaAgenter = idb.fetchColumn(sqlFraga);
+
+            comboValjTabort.setModel(new DefaultComboBoxModel<>(allaAgenter.toArray(new String[0])));
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTabortUtrustning;

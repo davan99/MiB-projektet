@@ -13,7 +13,9 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class infoAngivenPlats extends javax.swing.JFrame {
-private InfDB idb;
+
+    private InfDB idb;
+
     /**
      * Creates new form infoAngivenPlats
      */
@@ -140,8 +142,7 @@ private InfDB idb;
             for (String plats : allaPlatser) {
                 comboPlats.addItem(plats);
             }
-        } 
-        catch (InfException e) {
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }

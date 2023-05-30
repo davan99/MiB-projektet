@@ -16,8 +16,10 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class uppdateraAgent extends javax.swing.JFrame {
-private InfDB idb;
-private final String agentID;
+
+    private InfDB idb;
+    private final String agentID;
+
     /**
      * Creates new form uppdateraAgent
      */
@@ -241,11 +243,11 @@ private final String agentID;
 
     private void visaUppgifterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaUppgifterActionPerformed
         nuvarandeAgentID.setText("");
-       ;
+        ;
         namn.setText("");
         telefon.setText("");
         admin.setText("");
-      
+
         losenord.setText("");
         omrade.setText("");
         ArrayList<HashMap<String, String>> soktaAgenter;
@@ -258,11 +260,10 @@ private final String agentID;
             for (HashMap<String, String> agent : soktaAgenter) {
                 nuvarandeAgentID.setText(agent.get("Agent_ID"));
 
-              
                 namn.setText(agent.get("Namn"));
                 telefon.setText(agent.get("Telefon"));
                 admin.setText(agent.get("Administrator"));
-               
+
                 losenord.setText(agent.get("Losenord"));
                 omrade.setText(agent.get("Omrade"));
 
@@ -274,54 +275,44 @@ private final String agentID;
 
     private void uppdateraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraAgentActionPerformed
         try {
-        String agentIDe = nuvarandeAgentID.getText();
-       
-        String nyttNamn = namn.getText();
-        String nyTelefon = telefon.getText();
-        String nyAdmin = admin.getText();
-    
-        String nyttLosenord = losenord.getText();
-        String nyttOmrade = omrade.getText();
-        
-            String nuvarandeAdminStatus = idb.fetchSingle("SELECT Administrator FROM agent WHERE Agent_ID = " + agentID);
-        if (nuvarandeAdminStatus.equals("J") && !nyAdmin.equals("J") && agentID.equals(agentIDe)) {
-            JOptionPane.showMessageDialog(this, "En agent kan inte ta bort sig själv som admin.");
-            return;
-        }
-        
-        
-        
-        String sqlFraga = "UPDATE agent SET Namn = '" + nyttNamn + "', Telefon = '" + nyTelefon + "', Administrator = '" + nyAdmin + "', Losenord = '" + nyttLosenord + "', Omrade = '" + nyttOmrade + "' WHERE Agent_ID = " + agentID;
-        idb.update(sqlFraga);
-        
-       
-            
-            
+            String agentIDe = nuvarandeAgentID.getText();
 
-           
-         // Validering av telefonnummer
-   if (!Validering.valideraTelefonnummer(nyTelefon)) {
-        JOptionPane.showMessageDialog(this, "Telefonnummer kan endast innehålla siffror.");
-        return;
-    }
-        
-        if (!Validering.valideraOmradeID(nyttOmrade)) {
-            JOptionPane.showMessageDialog(this, "Ogiltigt omradeID. Endast 1 = Svealand, 2 = Götaland eller 4 = Norrland är tillåtna.");
-            return;
+            String nyttNamn = namn.getText();
+            String nyTelefon = telefon.getText();
+            String nyAdmin = admin.getText();
+
+            String nyttLosenord = losenord.getText();
+            String nyttOmrade = omrade.getText();
+
+            String nuvarandeAdminStatus = idb.fetchSingle("SELECT Administrator FROM agent WHERE Agent_ID = " + agentID);
+            if (nuvarandeAdminStatus.equals("J") && !nyAdmin.equals("J") && agentID.equals(agentIDe)) {
+                JOptionPane.showMessageDialog(this, "En agent kan inte ta bort sig själv som admin.");
+                return;
+            }
+
+            String sqlFraga = "UPDATE agent SET Namn = '" + nyttNamn + "', Telefon = '" + nyTelefon + "', Administrator = '" + nyAdmin + "', Losenord = '" + nyttLosenord + "', Omrade = '" + nyttOmrade + "' WHERE Agent_ID = " + agentID;
+            idb.update(sqlFraga);
+
+            // Validering av telefonnummer
+            if (!Validering.valideraTelefonnummer(nyTelefon)) {
+                JOptionPane.showMessageDialog(this, "Telefonnummer kan endast innehålla siffror.");
+                return;
+            }
+
+            if (!Validering.valideraOmradeID(nyttOmrade)) {
+                JOptionPane.showMessageDialog(this, "Ogiltigt omradeID. Endast 1 = Svealand, 2 = Götaland eller 4 = Norrland är tillåtna.");
+                return;
+            }
+            if (!Validering.kollaAdminStatus(nyAdmin)) {
+                JOptionPane.showMessageDialog(this, "Ogiltig adminstatus. Vänligen ange antingen 'J' för JA eller 'N' för NEJ.");
+                return;
+            }
+
+            JOptionPane.showMessageDialog(null, "Agenten har uppdaterats.");
+
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
         }
-        if (!Validering.kollaAdminStatus(nyAdmin)) {
-            JOptionPane.showMessageDialog(this, "Ogiltig adminstatus. Vänligen ange antingen 'J' för JA eller 'N' för NEJ.");
-            return;
-        }
-        
-        
-        
-        
-        JOptionPane.showMessageDialog(null, "Agenten har uppdaterats.");
-        
-    } catch (InfException e) {
-        System.out.println("fel" + e.getMessage());
-    }
 
     }//GEN-LAST:event_uppdateraAgentActionPerformed
 
@@ -350,18 +341,11 @@ private final String agentID;
             for (String agent : allaAgenter) {
                 comboAgent.addItem(agent);
             }
-        } 
-        catch (InfException e) {
+        } catch (InfException e) {
             System.out.println("fel" + e.getMessage());
         }
     }
-    
-    
-    
-    
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField admin;

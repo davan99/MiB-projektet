@@ -4,7 +4,6 @@
  */
 package mib.projektet;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
@@ -17,16 +16,17 @@ import oru.inf.InfException;
  * @author oskarjolesjo
  */
 public class tabortAlien extends javax.swing.JFrame {
+
     private final String agentID;
     private InfDB idb;
-   
+
     /**
      * Creates new form Utrustning
      */
     public tabortAlien(InfDB idb, String agentID) {
         initComponents();
         this.idb = idb;
-        this.agentID = agentID; 
+        this.agentID = agentID;
 //        fyllCombo();
         fyllCombo2();
     }
@@ -133,34 +133,32 @@ public class tabortAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTabortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortAlienActionPerformed
-   String valdAlien = comboValjTabortAlien.getSelectedItem().toString();
+        String valdAlien = comboValjTabortAlien.getSelectedItem().toString();
 //   String agentensID = comboValjAgent.getSelectedItem().toString();
 
-if(valdAlien != null)
-try{
-     idb.delete("DELETE FROM boglodite WHERE Alien_ID = "+ valdAlien); 
-     idb.delete("DELETE FROM squid WHERE Alien_ID = " + valdAlien); 
-     idb.delete("DELETE FROM worm WHERE Alien_ID = " + valdAlien) ;
-     idb.delete("Delete from Alien where Alien.Alien_ID = " + valdAlien);
-        JOptionPane.showMessageDialog(this, "Alien har tagits bort!");
+        if (valdAlien != null)
+try {
+            idb.delete("DELETE FROM boglodite WHERE Alien_ID = " + valdAlien);
+            idb.delete("DELETE FROM squid WHERE Alien_ID = " + valdAlien);
+            idb.delete("DELETE FROM worm WHERE Alien_ID = " + valdAlien);
+            idb.delete("Delete from Alien where Alien.Alien_ID = " + valdAlien);
+            JOptionPane.showMessageDialog(this, "Alien har tagits bort!");
 //        return;
-    
-    
-    
+
 //    JOptionPane.showMessageDialog(this, "Utrustningen har tagits bort");
-} catch (InfException e) {
-    e.printStackTrace();
-    JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
-}
-   
+        } catch (InfException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ett fel uppstod: " + e.getMessage());
+        }
+
 
     }//GEN-LAST:event_btnTabortAlienActionPerformed
 
     private void comboValjTabortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboValjTabortAlienActionPerformed
-     
-     String valdAlien = comboValjTabortAlien.getSelectedItem().toString();
-     fyllCombo2();
-     comboValjTabortAlien.setSelectedItem(valdAlien);
+
+        String valdAlien = comboValjTabortAlien.getSelectedItem().toString();
+        fyllCombo2();
+        comboValjTabortAlien.setSelectedItem(valdAlien);
     }//GEN-LAST:event_comboValjTabortAlienActionPerformed
 
     private void btnVisaIdNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaIdNamnActionPerformed
@@ -174,40 +172,35 @@ try{
             soktAlien = idb.fetchRows(sqlFraga);
 
             for (HashMap<String, String> aliens : soktAlien) {
-               
-              textRuta.append(aliens.get("Alien_ID")+" "+ aliens.get("Namn") + "\n");
-            
+
+                textRuta.append(aliens.get("Alien_ID") + " " + aliens.get("Namn") + "\n");
+
             }
         } catch (InfException e) {
-       System.out.println("fel" + e.getMessage());
+            System.out.println("fel" + e.getMessage());
         }
 
     }//GEN-LAST:event_btnVisaIdNamnActionPerformed
 
     private void btnAvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvbrytActionPerformed
-         this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnAvbrytActionPerformed
 
+    private void fyllCombo2() {
 
-  private void fyllCombo2() {
-         
-    String sqlFraga = "select Alien_ID from Alien ORDER BY Alien_ID ASC";
-    ArrayList<String> allaAliens;
+        String sqlFraga = "select Alien_ID from Alien ORDER BY Alien_ID ASC";
+        ArrayList<String> allaAliens;
 
-    try {
-        allaAliens = idb.fetchColumn(sqlFraga);
+        try {
+            allaAliens = idb.fetchColumn(sqlFraga);
 
-        comboValjTabortAlien.setModel(new DefaultComboBoxModel<>(allaAliens.toArray(new String[0])));
-    } catch (InfException e) {
-        System.out.println("fel" + e.getMessage());
+            comboValjTabortAlien.setModel(new DefaultComboBoxModel<>(allaAliens.toArray(new String[0])));
+        } catch (InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
+
     }
 
-  
-  
-  
-  
-} 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvbryt;

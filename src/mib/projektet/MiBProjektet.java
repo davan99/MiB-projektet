@@ -8,29 +8,28 @@ package mib.projektet;
  *
  * @author danie
  */
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
 public class MiBProjektet {
-    
+
     private static InfDB idb;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         } catch (InfException ex) {
             Logger.getLogger(MiBProjektet.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
-        
+
         new ValjInloggning(idb).setVisible(true);
     }
-    
+
 }
