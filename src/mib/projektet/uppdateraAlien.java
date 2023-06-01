@@ -60,7 +60,8 @@ public class uppdateraAlien extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         comboboxRas = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        txtRasegenskaper = new javax.swing.JTextField();
+        uppdateraRas = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,99 +131,123 @@ public class uppdateraAlien extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Rasegenskaper:");
+        jLabel2.setText("Välj ras");
 
-        txtRasegenskaper.setColumns(8);
+        uppdateraRas.setText("Uppdatera ras");
+        uppdateraRas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uppdateraRasActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jLabel10.setText("Uppdatera Ras");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(nuvarandeAlienID)
-                .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel9)
-                            .addGap(18, 18, 18)
-                            .addComponent(visaUppgifter))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ansvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(142, 142, 142)
+                        .addComponent(uppdateraAlien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(uppdateraRas)
+                        .addGap(78, 78, 78))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ansvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(plats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(142, 142, 142)
-                                .addComponent(uppdateraAlien))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jButton1))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(90, 90, 90)
-                                        .addComponent(jLabel1))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtRasegenskaper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(telefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(regdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(comboboxRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(258, 258, 258))))))
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addContainerGap(23, Short.MAX_VALUE))
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jButton1))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(90, 90, 90)
+                                                .addComponent(jLabel1))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(46, 46, 46)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(telefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(regdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(258, 258, 258))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addComponent(comboAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(nuvarandeAlienID)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(visaUppgifter))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(67, 67, 67)
+                                .addComponent(comboboxRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(232, 232, 232))))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(96, 96, 96)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(344, Short.MAX_VALUE)))
+                    .addContainerGap(960, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(visaUppgifter)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nuvarandeAlienID))
-                .addGap(18, 18, 18)
-                .addComponent(comboboxRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtRasegenskaper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(regdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jButton1))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(visaUppgifter)
+                            .addComponent(jLabel9)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel10)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nuvarandeAlienID)
+                        .addGap(7, 7, 7)
+                        .addComponent(comboAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(regdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(losenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboboxRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -233,14 +258,19 @@ public class uppdateraAlien extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(telefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(plats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ansvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(45, 45, 45))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(plats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ansvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addGap(45, 45, 45))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(uppdateraRas)
+                                .addGap(64, 64, 64))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(uppdateraAlien)
                         .addGap(53, 53, 53))))
@@ -248,7 +278,7 @@ public class uppdateraAlien extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(109, 109, 109)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(381, Short.MAX_VALUE)))
+                    .addContainerGap(351, Short.MAX_VALUE)))
         );
 
         pack();
@@ -297,8 +327,13 @@ public class uppdateraAlien extends javax.swing.JFrame {
         String nyPlats = plats.getText();
         String nyttLosenord = losenord.getText();
         String nyttAnsvarigAgent = ansvarigAgent.getText();
-        String ras = comboboxRas.getSelectedItem().toString();
-        String egenskaper = txtRasegenskaper.getText();
+       
+
+        
+        if (!Validering.agentFinnsIDatabas(idb, nyttAnsvarigAgent)) {
+    JOptionPane.showMessageDialog(this, "Ogiltig ansvarig agent. Agenten finns inte i databasen.");
+    return;
+}
 
         String sqlFraga = "UPDATE alien SET Registreringsdatum = '" + nyttRegDatum + "', Telefon = '" + nyTelefon + "', Namn = '" + nyttNamn + "', Plats = '" + nyPlats + "', Losenord = '" + nyttLosenord + "', Ansvarig_Agent = '" + nyttAnsvarigAgent + "' WHERE Alien_ID = " + alienID;
         idb.update(sqlFraga);
@@ -319,22 +354,9 @@ public class uppdateraAlien extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ogiltig ansvarig agent. Agenten finns inte i databasen.");
             return;
         }
+         
 
-        String sqlFragaWorm = "INSERT INTO worm VALUES ('" + egenskaper + "')";
-        String sqlFragaSquid = "INSERT INTO squid VALUES ( '" + egenskaper + "')";
-        String sqlFragaBoglodite = "INSERT INTO boglodite VALUES ('" + egenskaper + "')";
 
-        if (comboboxRas.getSelectedItem().toString().equals("Worm")) {
-            idb.insert(sqlFragaWorm);
-            JOptionPane.showMessageDialog(this, "Alien av typen Worm har lagts till i databasen.");
-
-        } else if (comboboxRas.getSelectedItem().toString().equals("Squid")) {
-            idb.insert(sqlFragaSquid);
-            JOptionPane.showMessageDialog(this, "Alien av typen Squid har lagts till i databasen.");
-        } else if (comboboxRas.getSelectedItem().toString().equals("Boglodite")) {
-            idb.insert(sqlFragaBoglodite);
-            JOptionPane.showMessageDialog(this, "Alien av typen Boglodite har lagts till i databasen.");
-        }
 
         JOptionPane.showMessageDialog(null, "Alien har uppdaterats.");
 
@@ -345,6 +367,26 @@ public class uppdateraAlien extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_uppdateraAlienActionPerformed
 
+    
+    private void taBortRad(String alienID) {
+    try {
+        // Ta bort rad från tabellen boglodite
+        String sqltaBortBoglodite = "DELETE FROM boglodite WHERE Alien_ID = '" + alienID + "'";
+        idb.delete(sqltaBortBoglodite);
+
+        // Ta bort rad från tabellen squid
+        String sqltaBortSquid = "DELETE FROM squid WHERE Alien_ID = '" + alienID + "'";
+        idb.delete(sqltaBortSquid);
+
+        // Ta bort rad från tabellen worm
+        String sqltaBortWorm = "DELETE FROM worm WHERE Alien_ID = '" + alienID + "'";
+        idb.delete(sqltaBortWorm);
+
+       
+    } catch (InfException e) {
+        System.out.println("Fel: " + e.getMessage());
+    }
+}
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -352,6 +394,42 @@ public class uppdateraAlien extends javax.swing.JFrame {
     private void comboboxRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxRasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboboxRasActionPerformed
+
+    private void uppdateraRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraRasActionPerformed
+        
+        String alienID = nuvarandeAlienID.getText();
+        
+
+        
+        try{ 
+//Koden nedan byter ut en aliens ras-tillhörighet ifall denna ska uppdateras
+         //Påkallar metoden taBortRad som raderar en rad i den ras-tabell som vald Alien just nu tillhör
+         taBortRad(alienID);
+
+        if (comboboxRas.getSelectedItem().toString().equals("Worm")) {
+            String egenskaper = JOptionPane.showInputDialog(this, "Ange längden på Alien av ras Worm: ");
+            String sqlInsertWorm = "INSERT INTO worm (Alien_ID, Langd) VALUES ('" + alienID + "', '" + egenskaper + "')";
+            idb.insert(sqlInsertWorm);
+            
+        } else if (comboboxRas.getSelectedItem().toString().equals("Squid")) {
+            String egenskaper = JOptionPane.showInputDialog(this, "Ange antal armar på Alien av ras Squid: ");
+            String sqlInsertSquid = "INSERT INTO squid (Alien_ID, Antal_Armar) VALUES ('" + alienID + "', '" + egenskaper + "')";
+            idb.insert(sqlInsertSquid);
+            
+        } else if (comboboxRas.getSelectedItem().toString().equals("Boglodite")) {
+            String egenskaper = JOptionPane.showInputDialog(this, "Ange antal boogies på Alien av ras Boglodite (float-tal):");
+            String sqlInsertBoglodite = "INSERT INTO boglodite (Alien_ID, Antal_Boogies) VALUES ('" + alienID + "', '" + egenskaper + "')";
+            idb.insert(sqlInsertBoglodite);
+            
+        }
+        
+        JOptionPane.showMessageDialog(null, "Alien har uppdaterats.");
+        }
+        catch(InfException e) {
+            System.out.println("fel" + e.getMessage());
+        }
+        
+    }//GEN-LAST:event_uppdateraRasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,6 +456,7 @@ public class uppdateraAlien extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboboxRas;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -393,8 +472,8 @@ public class uppdateraAlien extends javax.swing.JFrame {
     private javax.swing.JTextField plats;
     private javax.swing.JTextField regdatum;
     private javax.swing.JTextField telefon;
-    private javax.swing.JTextField txtRasegenskaper;
     private javax.swing.JButton uppdateraAlien;
+    private javax.swing.JButton uppdateraRas;
     private javax.swing.JButton visaUppgifter;
     // End of variables declaration//GEN-END:variables
 }
